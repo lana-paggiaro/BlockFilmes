@@ -1,2 +1,2 @@
-# Projeto-de-Java
-Repositório do Projeto de Linguagem de Programação.
+# BlockFilmes
+Repositório do Projeto de Java em Linguagem de Programação.
