@@ -6,15 +6,29 @@ public class Cliente extends Pessoa implements IPessoa{
     protected float cpf;
     protected float telefone;
     protected String email;
+    protected boolean ativo;
 
-    public Cliente(String nome, int idade, float cpf, float telefone, String email) {
+    public Cliente(){
+        
+    }
+    
+    public Cliente(String nome, int idade, float cpf, float telefone, String email, boolean ativo) {
         this.nome = nome;
         this.idade = idade;
         this.cpf = cpf;
         this.telefone = telefone;
         this.email = email;
+        this.ativo = ativo;
     }
-        
+
+    public boolean isAtivo() {
+        return ativo;
+    }
+
+    public void setAtivo(boolean ativo) {
+        this.ativo = ativo;
+    }
+    
     public String getNome() {
         return nome;
     }

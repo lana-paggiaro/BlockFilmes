@@ -7,16 +7,26 @@ public class Funcionario extends Pessoa implements IPessoa{
     protected double salario;
     protected float telefone;
     protected String endereco;
+    protected boolean ativoF;
 
-    public Funcionario(String nome, int idade, String cargo, double salario, float telefone, String endereco) {
+    public Funcionario(String nome, int idade, String cargo, double salario, float telefone, String endereco, boolean ativoF) {
         this.nome = nome;
         this.idade = idade;
         this.cargo = cargo;
         this.salario = salario;
         this.telefone = telefone;
         this.endereco = endereco;
+        this.ativoF = ativoF;
     }
 
+    public boolean isAtivoF() {
+        return ativoF;
+    }
+
+    public void setAtivo(boolean ativoF) {
+        this.ativoF = ativoF;
+    } 
+    
     public String getNome() {
         return nome;
     }
