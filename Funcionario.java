@@ -1,8 +1,6 @@
 package projetoblockfilmes;
 
 public class Funcionario extends Pessoa implements IPessoa{
-    protected String nome;
-    protected int idade;
     protected String cargo;
     protected double salario;
     protected float telefone;
@@ -17,6 +15,9 @@ public class Funcionario extends Pessoa implements IPessoa{
         this.telefone = telefone;
         this.endereco = endereco;
         this.ativoF = ativoF;
+    }
+    public Funcionario(){
+
     }
 
     public boolean isAtivoF() {
