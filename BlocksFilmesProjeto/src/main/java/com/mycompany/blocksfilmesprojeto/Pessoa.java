@@ -1,13 +1,11 @@
 
 package com.mycompany.blocksfilmesprojeto;
 
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import javax.naming.directory.InvalidAttributeValueException;
-
 public abstract class Pessoa {
     protected String nome;
     protected int idade;
+    protected String cpf;
+    protected String email;
 
     //construtores
     public void Pessoa(){
@@ -32,6 +30,19 @@ public abstract class Pessoa {
         this.idade = idade;
         //fazer exceção de idade <18
     }
-    
-    
+    public String getCpf() {
+        return cpf;
+    }
+
+    public void setCpf(String cpf) {
+        this.cpf = cpf;
+        //fazer exceção de requerer 11 caracteres
+    }
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
 }

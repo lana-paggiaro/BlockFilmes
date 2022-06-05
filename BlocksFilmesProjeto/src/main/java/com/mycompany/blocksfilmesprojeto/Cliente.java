@@ -1,12 +1,12 @@
 
 package com.mycompany.blocksfilmesprojeto;
 
+import java.util.Scanner;
 
 public class Cliente extends Pessoa implements IPessoa {
-    protected float cpf;
-    protected float telefone;
-    protected String email;
-    protected boolean ativo;
+    protected String telefone;
+    
+    //protected boolean ativo;
 
     //construtores
     public void Cliente(){
@@ -15,48 +15,64 @@ public class Cliente extends Pessoa implements IPessoa {
     
     //metodos
     public void exibir(){
+        System.out.println("Nome: " + nome);
+        System.out.println("Idade: " + idade);
+        System.out.println("Cpf: " + cpf);
+        System.out.println("Email: " + email);
+        System.out.println("Telefone:" + telefone);
+    }
+    
+     public static Cliente cadastrarCliente(){
+        Cliente cliente = new Cliente();
+        Scanner teclado = new Scanner(System.in);
+        //ArrayList <Cliente> listaCliente = new ArrayList();
         
+        System.out.print("\nDigite seu nome: ");
+        cliente.setNome(teclado.nextLine());
+
+        System.out.print("\nDigite sua idade: ");
+        cliente.setIdade(teclado.nextInt());
+
+        System.out.print("\nDigite seu cpf: ");
+        cliente.setCpf(teclado.nextLine());
+        teclado.next();
+                
+        System.out.print("\nDigite seu email: ");
+        cliente.setEmail(teclado.nextLine());
+        teclado.next();
+        
+        System.out.print("\nDigite seu telefone: ");
+        cliente.setTelefone(teclado.nextLine());
+        teclado.next();
+        
+        
+        //limpar buffer
+        /*System.out.println("Digite seu status (ativo = true/inativo = false): ");
+        cliente.setAtivo(teclado.nextBoolean());*/
+        
+        return cliente;
     }
     
     //getters e setters
-    public float getCpf() {
-        return cpf;
-    }
 
-    public void setCpf(float cpf) {
-        this.cpf = cpf;
-        //fazer exceção de requerer 11 caracteres
-    }
-
-    public float getTelefone() {
+    public String getTelefone() {
         return telefone;
     }
 
-    public void setTelefone(float telefone) {
+    public void setTelefone(String telefone) {
         this.telefone = telefone;
         //fazer exceção de requerer 11 caracteres
 
     }
 
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public boolean isAtivo() {
+    /*public boolean isAtivo() {
         return ativo;
     }
 
     public void setAtivo(boolean ativo) {
         this.ativo = ativo;
-    }
+    }*/
 
-    void clear() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
     
     
 }
