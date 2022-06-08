@@ -35,16 +35,20 @@ public class Cliente extends Pessoa implements IPessoa {
         cliente.setIdade(teclado.nextInt());
 
         System.out.print("\nDigite seu cpf: ");
-        cliente.setCpf(teclado.nextLine());
-        teclado.next();
+        cliente.setCpf(teclado.next());
+        teclado.nextLine();
+        
 
         System.out.print("\nDigite seu email: ");
-        cliente.setEmail(teclado.nextLine());
-        teclado.next();
+        cliente.setEmail(teclado.next());
+        teclado.nextLine();
+        
 
         System.out.print("\nDigite seu telefone: ");
-        cliente.setTelefone(teclado.nextLine());
-        teclado.next();
+        cliente.setTelefone(teclado.next());
+        teclado.nextLine();
+        System.out.println();
+        
 
         // limpar buffer
         /*

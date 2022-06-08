@@ -6,8 +6,9 @@ import java.util.Scanner;
 public class Produto {
     protected String titulo;
     protected String genero;
-    protected int lancamento;
-    protected double aluguel;
+    protected String lancamento;
+    protected double aluguel;//preço
+    protected String codigo;
     // protected boolean disponibilidade;
 
     // construtores
@@ -20,8 +21,9 @@ public class Produto {
     public void exibirProduto() {
         System.out.println("Titulo: " + titulo);
         System.out.println("Genero: " + genero);
-        System.out.println("Lançameto: " + lancamento);
+        System.out.println("Lançamento: " + lancamento);
         System.out.println("Preço de aluguel: " + aluguel);
+        System.out.println("Código do Filme: "+ codigo);
         // System.out.println("Disponibilidade: "+ disponibilidade);
     }
 
@@ -36,10 +38,15 @@ public class Produto {
         produto.setGenero(teclado.nextLine());
 
         System.out.print("\nInsira a data de lançamento do filme: ");
-        produto.setLancamento(teclado.nextInt()); // por para receber data de maneira --/--/----
+        produto.setLancamento(teclado.nextLine()); // por para receber data de maneira --/--/----
 
-        System.out.print("\nInsira o preço de aluguel do filme: ");
+        System.out.print("\nInsira o preço de aluguel do filme: R$");
         produto.setAluguel(teclado.nextDouble());
+        teclado.nextLine();
+
+        System.out.print("\nInsira o código do filme: ");
+        produto.setCodigo(teclado.nextLine());
+        System.out.println();
 
         /*
          * System.out.
@@ -67,11 +74,11 @@ public class Produto {
         this.genero = genero;
     }
 
-    public int getLancamento() {
+    public String getLancamento() {
         return lancamento;
     }
 
-    public void setLancamento(int lancamento) {
+    public void setLancamento(String lancamento) {
         this.lancamento = lancamento;
     }
 
@@ -83,6 +90,13 @@ public class Produto {
         this.aluguel = aluguel;
     }
 
+    public String getCodigo() {
+        return codigo;
+    }
+
+    public void setCodigo(String codigo) {
+        this.codigo = codigo;
+    }
     /*
      * public boolean isDisponibilidade() {
      * return disponibilidade;

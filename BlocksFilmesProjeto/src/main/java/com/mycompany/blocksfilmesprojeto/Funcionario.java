@@ -33,19 +33,25 @@ public class Funcionario extends Pessoa implements IPessoa {
 
         System.out.print("\nDigite sua idade: ");
         funcionario.setIdade(teclado.nextInt());
+        
 
         System.out.print("\nDigite seu cpf: ");
-        funcionario.setCpf(teclado.nextLine());
+        funcionario.setCpf(teclado.next());
+        teclado.nextLine();
 
         System.out.print("\nDigite seu cargo: ");
-        funcionario.setCargo(teclado.nextLine());
-        teclado.next();
+        funcionario.setCargo(teclado.next());
+        teclado.nextLine();
+        
 
         System.out.print("\nDigite seu salario: ");
         funcionario.setSalario(teclado.nextFloat());
+        teclado.nextLine();
 
         System.out.print("\nDigite seu email: ");
-        funcionario.setEmail(teclado.nextLine());
+        funcionario.setEmail(teclado.next());
+        teclado.nextLine();
+        System.out.println();
 
         /*
          * System.out.println("Digite seu status (ativo/inativo):");
