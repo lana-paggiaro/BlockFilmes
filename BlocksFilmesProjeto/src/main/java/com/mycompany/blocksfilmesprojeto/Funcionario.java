@@ -44,7 +44,7 @@ public class Funcionario extends Pessoa implements IPessoa {
         teclado.nextLine();
         
 
-        System.out.print("\nDigite seu salario: ");
+        System.out.print("\nDigite seu salario: R$");
         funcionario.setSalario(teclado.nextFloat());
         teclado.nextLine();
 
@@ -78,13 +78,11 @@ public class Funcionario extends Pessoa implements IPessoa {
         this.salario = salario;
     }
 
-    /*
-     * public boolean isAtivoF() {
-     * return ativoF;
-     * }
-     * 
-     * public void setAtivoF(boolean ativoF) {
-     * this.ativoF = ativoF;
-     * }
-     */
+    @Override // sobrecarga pois funcionario n pode ser menor de 18 pq né
+    public void setIdade(int idade) { if (idade < 16)
+        throw new IllegalArgumentException("O funcionário não deve ser menor de idade.");
+        super.setIdade(idade);
+        // exceção de idade <18 || idade > 100
+    }
+   
 }

@@ -26,9 +26,12 @@ public abstract class Pessoa {
         return idade;
     }
 
-    public void setIdade(int idade) {
+    public void setIdade(int idade){
+        if( idade <0 || idade> 100)
+        throw new IllegalArgumentException("O funcionário não deve ser menor de idade.");
+        
         this.idade = idade;
-        // fazer exceção de idade <18
+        // fazer exceção de idade <0 || idade > 100
     }
 
     public String getCpf() {
@@ -42,9 +45,11 @@ public abstract class Pessoa {
 
     public String getEmail() {
         return email;
+        
     }
 
     public void setEmail(String email) {
         this.email = email;
+        //fazer exceção de uso de @ metodo .contains()
     }
 }

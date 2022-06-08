@@ -7,9 +7,9 @@ public class Produto {
     protected String titulo;
     protected String genero;
     protected String lancamento;
-    protected double aluguel;//preço
+    protected float aluguel;//preço
     protected String codigo;
-    // protected boolean disponibilidade;
+    
 
     // construtores
 
@@ -22,7 +22,7 @@ public class Produto {
         System.out.println("Titulo: " + titulo);
         System.out.println("Genero: " + genero);
         System.out.println("Lançamento: " + lancamento);
-        System.out.println("Preço de aluguel: " + aluguel);
+        System.out.println("Preço de aluguel: R$" + aluguel);
         System.out.println("Código do Filme: "+ codigo);
         // System.out.println("Disponibilidade: "+ disponibilidade);
     }
@@ -41,7 +41,7 @@ public class Produto {
         produto.setLancamento(teclado.nextLine()); // por para receber data de maneira --/--/----
 
         System.out.print("\nInsira o preço de aluguel do filme: R$");
-        produto.setAluguel(teclado.nextDouble());
+        produto.setAluguel(teclado.nextFloat());
         teclado.nextLine();
 
         System.out.print("\nInsira o código do filme: ");
@@ -82,11 +82,11 @@ public class Produto {
         this.lancamento = lancamento;
     }
 
-    public double getAluguel() {
+    public float getAluguel() {
         return aluguel;
     }
 
-    public void setAluguel(double aluguel) {
+    public void setAluguel(float aluguel) {
         this.aluguel = aluguel;
     }
 
@@ -97,14 +97,6 @@ public class Produto {
     public void setCodigo(String codigo) {
         this.codigo = codigo;
     }
-    /*
-     * public boolean isDisponibilidade() {
-     * return disponibilidade;
-     * }
-     * 
-     * public void setDisponibilidade(boolean disponibilidade) {
-     * this.disponibilidade = disponibilidade;
-     * }
-     */
+    
 
 }

@@ -32,13 +32,13 @@ public class BlocksFilmesProjeto {
                 
                 opcao = (teclado.nextInt());
                 teclado.nextLine();
-
+                
                 switch (opcao) {
                     case 0:
+                        //System.out.println("Encerrando programa...");
                         algolegal = false;
                         break;
                     case 1:
-                        
                         cadastrarCliente().exibir();
                         //por para exibir o que foi cadastrado
                         break;
@@ -61,21 +61,29 @@ public class BlocksFilmesProjeto {
                     case 6:
                         System.out.println("\nDigite a opcão a ser procurada: \nn - nome \ng - genero \np - preço\n");
                         procurarProduto(teclado.nextLine()).exibirProduto(); // como exibir?
+                        break;
                     case 7:
                         System.out.println("Digite o nome do cliente a ser excluido: ");
                         excluirCliente(teclado.nextLine());
-                        
-
-                
-                
+                        break;
+                    case 8 :
+                        System.out.println("Digite o nome do funcionario a ser excluido:");
+                        excluirFuncionario(teclado.nextLine());
+                        break;
+                    case 9:
+                        System.out.println("Digite o produto a ser excluido: ");
+                        excluirProduto(teclado.nextLine());
+                        break;
             }
+            if(algolegal)
+            esperador(); 
         } while (algolegal);
     }
 
     public static Cliente cadastrarCliente() {
         Cliente cliente = Cliente.cadastrarCliente();
         listaCliente.add(cliente);
-        System.out.println("O cliente " + cliente.getNome() + "foi cadastrado com sucesso!");
+        System.out.println("O cliente " + cliente.getNome() + " foi cadastrado com sucesso!\n");
         
         return cliente;
     }
@@ -94,28 +102,40 @@ public class BlocksFilmesProjeto {
     }
 
     public static Cliente procurarCliente(String codigoProcurar) {
-        for (Cliente cliente : listaCliente) {
-            if (cliente.getNome().startsWith(codigoProcurar)) {
+               for (Cliente cliente : listaCliente) {
+            if (cliente.getNome().toLowerCase().startsWith(codigoProcurar.toLowerCase())) {
                 return cliente;
             }
         }
         return null;
+        /*try{
+            return null;
+        }
+        catch (NullPointerException e) {
+            System.out.println("ERRO!\nNão há cliente com esse nome registrado!");
+        }*/
     }
 
     public static Funcionario procurarFuncionario(String codigoProcurar) {
+        
         for (Funcionario funcionario : listaFuncionario) {
-            if (funcionario.getNome().startsWith(codigoProcurar)) {
+            if (funcionario.getNome().toLowerCase().startsWith(codigoProcurar.toLowerCase())) {
                 return funcionario;
             }
         }
         return null;
+        /*try{
+            return null;
+        }
+        catch (NullPointerException e) {
+            System.out.println("ERRO!\nNão há funcionario com esse nome registrado!");
+        }*/
     }
 
-    public static Produto procurarProduto(String codigoProcurar) {
-
+    public static Produto procurarProduto(String codigoProcurar) { //revisar
 
         for (Produto produto : listaProduto) {
-            switch (codigoProcurar){
+            switch (codigoProcurar.toLowerCase()){
             case "n": 
             System.out.println("Digite o título a ser procurado: ");
             produto.getTitulo().startsWith(codigoProcurar);
@@ -132,21 +152,72 @@ public class BlocksFilmesProjeto {
             }
         }
         return null;
+        /*try{
+            return null;
+        }
+        catch (NullPointerException e) {
+            System.out.println("ERRO!\nEsse produto não está registrado!");
+        }*/
     }
 
     public static void excluirCliente(String codigoExcluir) {
         Cliente cliente = procurarCliente(codigoExcluir);
-        listaCliente.remove(cliente);
-        System.out.println("O cliente"+ cliente.getNome() +"foi excluído com sucesso!");
+        
+        System.out.println("\nTem certeza que deseja excluir " + cliente.getNome() +" ?");
+
+        if (opcaoSN()){ // ver
+            listaCliente.remove(cliente);
+            System.out.println("O cliente" + cliente.getNome() +" foi excluído com sucesso!");
+        }
+        else
+        System.out.println("Voltando ao menu principal.");    
     }
 
     public static void excluirFuncionario(String codigoExcluir) {
-        listaFuncionario.remove(procurarFuncionario(codigoExcluir));
-        System.out.println("O funcionário foi excluído com sucesso!");
+        Funcionario funcionario = procurarFuncionario(codigoExcluir);
+        
+        System.out.println("\nTem certeza que deseja excluir " + funcionario.getNome() +" ?");
+
+        if(opcaoSN()){
+            listaFuncionario.remove(funcionario);
+            System.out.println("O funcionario" +funcionario.getNome() +" foi excluido com sucesso!");
+        }
+        else
+        System.out.println("Voltando ao menu principal.");
+        
     }
 
     public static void excluirProduto(String codigoExcluir) {
         listaProduto.remove(procurarProduto(codigoExcluir));
         System.out.println("O produto foi excluído com sucesso!");
     }
+
+    public static void esperador() {
+        
+        try {
+            System.out.print("\t\nPressione enter para continuar ");
+            System.in.read();
+        } catch (Exception e) {}
+    }
+
+    public static boolean opcaoSN() {
+        char opcao = 's';
+        boolean opcaoValida;
+
+        do {
+            opcaoValida = true;
+            System.out.print("\tOpção [s/n]:  ");
+            try {
+                opcao = teclado.next().charAt(0);
+                if (opcao !=  's' && opcao != 'n')
+                    throw new IllegalArgumentException("Opção inválida. Insira apenas 's' ou 'n'.");
+            } catch (IllegalArgumentException e) {
+                System.out.println(e.getMessage() + "\n");
+                opcaoValida = false;
+            }
+        } while (!opcaoValida);
+
+        return opcao == 's';
+    }
 }
+
