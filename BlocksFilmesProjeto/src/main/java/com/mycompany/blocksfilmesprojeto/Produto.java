@@ -17,6 +17,14 @@ public class Produto {
 
     }
 
+    public void Produto(String titulo, String genero, String lancamento, float aluguel, String codigo){
+        this.titulo = titulo;
+        this.genero = genero;
+        this.lancamento = lancamento;
+        this.aluguel = aluguel;
+        this.codigo = codigo;
+    }
+
     // metodos
     public void exibirProduto() {
         System.out.println("Titulo: " + titulo);

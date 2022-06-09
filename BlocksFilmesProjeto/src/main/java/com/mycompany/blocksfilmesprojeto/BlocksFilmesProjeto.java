@@ -177,14 +177,6 @@ public class BlocksFilmesProjeto {
     public static Produto procurarProduto(String codigoProcurar) { //revisar
 
         switch (codigoProcurar.toLowerCase()){
-            case "n": 
-            System.out.println("Digite o título a ser procurado: ");
-            codigoProcurar = (teclado.next());
-            for (Produto produto : listaProduto) {
-                if (produto.getTitulo().toLowerCase().startsWith(codigoProcurar))
-                    return produto;
-            
-            }
 
             case "g" :
             System.out.println("Digite o gênero a ser procurado: ");
@@ -192,6 +184,16 @@ public class BlocksFilmesProjeto {
             for (Produto produto : listaProduto) {  
                 if (produto.getGenero().toLowerCase().startsWith(codigoProcurar))
                     return produto;
+            }
+            break;
+
+            case "c": 
+            System.out.println("Digite o código a ser procurado: ");
+            codigoProcurar = (teclado.next());
+            for (Produto produto : listaProduto) {
+                if (produto.getCodigo().toLowerCase().startsWith(codigoProcurar))
+                    return produto;
+            
             }
 
             /*case "p" :
@@ -276,5 +278,11 @@ public class BlocksFilmesProjeto {
 
         return opcao == 's';
     }
+
+    /*public static void preDefinidos(){
+        Cliente cliente = new Cliente("Antonio", 45, "12345678901", "ant@yahoo.com.br", "190567895");
+        Funcionario funcionario = new Funcionario("Everton", 34, "09876543210", "everton@gmail.com", "Locador", 1200);
+        Produto produto = new Produto("Gente Grande 2", "String genero", String lancamento, float aluguel, String codigo);
+    }*/
 }
 
