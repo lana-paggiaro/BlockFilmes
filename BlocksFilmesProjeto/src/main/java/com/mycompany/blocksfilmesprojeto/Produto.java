@@ -72,6 +72,8 @@ public class Produto {
 
     public void setGenero(String genero) {
         this.genero = genero;
+
+        //exceção de não poder conter numeros
     }
 
     public String getLancamento() {
@@ -96,7 +98,10 @@ public class Produto {
 
     public void setCodigo(String codigo) {
         this.codigo = codigo;
+
+        //excessão de ter apenas 4 digitos
     }
+
     
 
 }

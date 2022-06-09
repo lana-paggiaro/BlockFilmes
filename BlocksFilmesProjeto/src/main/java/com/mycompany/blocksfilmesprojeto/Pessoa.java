@@ -27,11 +27,10 @@ public abstract class Pessoa {
     }
 
     public void setIdade(int idade){
-        if( idade <0 || idade> 100)
+        if( idade <=0 || idade> 100)
         throw new IllegalArgumentException("O funcionário não deve ser menor de idade.");
         
         this.idade = idade;
-        // fazer exceção de idade <0 || idade > 100
     }
 
     public String getCpf() {
@@ -40,6 +39,11 @@ public abstract class Pessoa {
 
     public void setCpf(String cpf) {
         this.cpf = cpf;
+        cpf.replaceAll("\\D", "");
+
+        if (cpf.replaceAll("\\D","").length() != 11)
+        throw new IllegalArgumentException("CPF deve conter 11 números");
+       
         // fazer exceção de requerer 11 caracteres
     }
 
@@ -49,7 +53,12 @@ public abstract class Pessoa {
     }
 
     public void setEmail(String email) {
+        
+        if (!email.contains("@"))
+        throw new IllegalArgumentException("O email deve conter, obrigatoriamente, @!");
+        //tratar essa exceção para n parar de compilar o codigo
+
         this.email = email;
-        //fazer exceção de uso de @ metodo .contains()
+        
     }
 }

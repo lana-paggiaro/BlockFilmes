@@ -6,8 +6,6 @@ import java.util.Scanner;
 public class Cliente extends Pessoa implements IPessoa {
     protected String telefone;
 
-    // protected boolean ativo;
-
     // construtores
     public void Cliente() {
 
@@ -26,7 +24,6 @@ public class Cliente extends Pessoa implements IPessoa {
     public static Cliente cadastrarCliente() {
         Cliente cliente = new Cliente();
         Scanner teclado = new Scanner(System.in);
-        // ArrayList <Cliente> listaCliente = new ArrayList();
 
         System.out.print("\nDigite seu nome: ");
         cliente.setNome(teclado.nextLine());
@@ -48,13 +45,6 @@ public class Cliente extends Pessoa implements IPessoa {
         cliente.setTelefone(teclado.next());
         teclado.nextLine();
         System.out.println();
-        
-
-        // limpar buffer
-        /*
-         * System.out.println("Digite seu status (ativo = true/inativo = false): ");
-         * cliente.setAtivo(teclado.nextBoolean());
-         */
 
         return cliente;
     }
@@ -67,18 +57,13 @@ public class Cliente extends Pessoa implements IPessoa {
 
     public void setTelefone(String telefone) {
         this.telefone = telefone;
-        // fazer exceção de requerer 11 caracteres
+
+        telefone.replaceAll("\\D", "");
+
+        if (telefone.replaceAll("\\D","").length() != 11)
+        throw new IllegalArgumentException("Telefone deve conter 11 números");
+        // tratar exceção para não explodir o codigo e parar a compilação
 
     }
-
-    /*
-     * public boolean isAtivo() {
-     * return ativo;
-     * }
-     * 
-     * public void setAtivo(boolean ativo) {
-     * this.ativo = ativo;
-     * }
-     */
 
 }

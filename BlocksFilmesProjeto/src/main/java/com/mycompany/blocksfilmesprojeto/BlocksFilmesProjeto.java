@@ -26,6 +26,7 @@ public class BlocksFilmesProjeto {
                 System.out.println("Opção 7 -  Exclusão de Cliente");
                 System.out.println("Opção 8 -  Exclusão de Funcionário");
                 System.out.println("Opção 9 -  Exclusão de Produto");
+                System.out.println("Opção 10 - Métodos");
                 System.out.println("Opção 0 -  Encerrar programa"); //funcionando
                 System.out.print("\nDigite o número correspondente à ação que deseja realizar: ");
 
@@ -74,10 +75,51 @@ public class BlocksFilmesProjeto {
                         System.out.println("Digite o produto a ser excluido: ");
                         excluirProduto(teclado.nextLine());
                         break;
+                    case 10:
+                        menuMetodos();
+                        break;
             }
             if(algolegal)
             esperador(); 
         } while (algolegal);
+    }
+
+    public static void menuMetodos(){
+        int opcaomenu;
+        System.out.println("\nSUBMENU - INFORMAÇÕES DE SISTEMA\n");
+        System.out.println("Verifique as opções abaixo:");
+        System.out.println("Opção 1 - Cliente com maior idade");
+        System.out.println("Opção 2 - Cliente com maior idade");
+        System.out.println("Opção 3 - Cliente com maior idade");
+        System.out.println("Opção 4 - Cliente com maior idade");
+        System.out.println("Opção 5 - Cliente com maior idade");
+        System.out.println("Opção 6 - Cliente com maior idade");
+        System.out.print("\nDigite o número correspondente à ação que deseja realizar: ");
+        opcaomenu = (teclado.nextInt());
+        teclado.nextLine();
+
+        switch(opcaomenu) {
+            case 1:
+            //chama metodo
+            break;
+
+            case 2: 
+            //chama metodo
+            break;
+
+            case 3: 
+            //chama metodo                
+            case 4:
+            //chama metodo
+            break;
+
+            case 5:
+            //chama metodo
+            break;
+
+            case 6: 
+            //chama metodo
+        }
     }
 
     public static Cliente cadastrarCliente() {
@@ -134,23 +176,30 @@ public class BlocksFilmesProjeto {
 
     public static Produto procurarProduto(String codigoProcurar) { //revisar
 
-        for (Produto produto : listaProduto) {
-            switch (codigoProcurar.toLowerCase()){
+        switch (codigoProcurar.toLowerCase()){
             case "n": 
             System.out.println("Digite o título a ser procurado: ");
-            produto.getTitulo().startsWith(codigoProcurar);
-            return produto;
+            codigoProcurar = (teclado.next());
+            for (Produto produto : listaProduto) {
+                if (produto.getTitulo().toLowerCase().startsWith(codigoProcurar))
+                    return produto;
+            
+            }
 
             case "g" :
             System.out.println("Digite o gênero a ser procurado: ");
-            produto.getGenero().startsWith(codigoProcurar);
-            return produto;
+            codigoProcurar = (teclado.next());
+            for (Produto produto : listaProduto) {  
+                if (produto.getGenero().toLowerCase().startsWith(codigoProcurar))
+                    return produto;
+            }
 
             /*case "p" :
+            System.out.println("Digite o preço a ser procurado: ");
             produto.getAluguel().equals(codigoProcurar); // string se igualar a int
             return produto;*/
             }
-        }
+        
         return null;
         /*try{
             return null;
@@ -188,8 +237,16 @@ public class BlocksFilmesProjeto {
     }
 
     public static void excluirProduto(String codigoExcluir) {
-        listaProduto.remove(procurarProduto(codigoExcluir));
-        System.out.println("O produto foi excluído com sucesso!");
+        Produto produto = procurarProduto(codigoExcluir);
+        System.out.println("\nTem certeza que deseja excluir " + produto.getTitulo() +" ?");
+
+        if(opcaoSN()){
+            listaFuncionario.remove(produto);
+            System.out.println("O funcionario" +produto.getTitulo() +" foi excluido com sucesso!");
+        }
+        else
+        System.out.println("Voltando ao menu principal.");
+
     }
 
     public static void esperador() {
