@@ -6,17 +6,13 @@ import java.util.Scanner;
 public class Funcionario extends Pessoa implements IPessoa {
     protected String cargo;
     protected double salario;
-    // protected boolean ativoF;
 
-
+    // construtores
     public Funcionario(String nome, int idade, String cpf, String email, String cargo, String salario) {
     }
 
     public Funcionario() {
     }
-
-    // construtores
-
 
     // metodos
 
@@ -58,11 +54,6 @@ public class Funcionario extends Pessoa implements IPessoa {
         teclado.nextLine();
         System.out.println();
 
-        /*
-         * System.out.println("Digite seu status (ativo/inativo):");
-         * funcionario.setAtivoF(teclado.nextBoolean());
-         */
-
         return funcionario;
     }
 
@@ -84,10 +75,14 @@ public class Funcionario extends Pessoa implements IPessoa {
     }
 
     @Override // sobrecarga pois funcionario n pode ser menor de 18 pq né
-    public void setIdade(int idade) { if (idade < 16)
-        throw new IllegalArgumentException("O funcionário não deve ser menor de idade.");
+    public void setIdade(int idade) { 
+    
+        if (idade < 16)
+        throw new IllegalArgumentException("O funcionário não deve ser menor de idade. Voltando ao menu principal");
         super.setIdade(idade);
-        // exceção de idade <18 || idade > 100
+        // exceção de idade <18 || idade > 100 - voltar ao menu principal 
+        
     }
    
+    
 }

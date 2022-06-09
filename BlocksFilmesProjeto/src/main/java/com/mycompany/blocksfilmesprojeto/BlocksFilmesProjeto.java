@@ -1,27 +1,12 @@
 
 package com.mycompany.blocksfilmesprojeto;
 
-import java.util.ArrayList;
+
 import java.util.Scanner;
 
 public class BlocksFilmesProjeto {
     private static Scanner teclado = new Scanner(System.in);
-
-    private static ArrayList<Cliente> listaCliente = new ArrayList<Cliente>();
-    private static ArrayList<Funcionario> listaFuncionario = new ArrayList<Funcionario>();
-    private static ArrayList<Produto> listaProduto = new ArrayList<Produto>();
-
     public static void main(String[] args) {
-        listaCliente.add(new Cliente("Antonio", 45, "56483567281", "antoninho@hotmail.com", "19945683956"));
-        listaCliente.add(new Cliente("Samara", 32, "658356913502", "samsam@hotmail.com", "19583957295"));
-        //exceção de return null??? socorro meida
-
-        listaFuncionario.add(new Funcionario("Everton", 52, "45738593848", "everTown@yahoo.com.br", "atendente", "1500"));
-        listaFuncionario.add(new Funcionario("Rosangela", 29, "84935867495", "rosan@gmail.com", "faxineira", "1100"));
-        //exceção de return null??? socorro meida
-
-        listaProduto.add(new Produto("Shrek 2", "Animacao", "22/06/2001", (float) 25.50, "1234"));
-        listaProduto.add(new Produto("Morbius", "Acao", "31/03/2022", (float) 20.75, "0000"));
 
         boolean algolegal = true;
         int opcao;
@@ -51,40 +36,40 @@ public class BlocksFilmesProjeto {
                         algolegal = false;
                         break;
                     case 1:
-                        cadastrarCliente().exibir();
+                        ControleCliente.cadastrarCliente().exibir();
                         //por para exibir o que foi cadastrado
                         break;
                     case 2:
-                        cadastrarFuncionario().exibir();
+                        ControleFuncionario.cadastrarFuncionario().exibir();
                         //por pra exibir o que foi cadastrado
                         break;
                     case 3:
-                        cadastrarProduto().exibirProduto();
+                        ControleProduto.cadastrarProduto().exibirProduto();
                         //por paa exibir oq foi cadastrado
                         break;
                     case 4:
                         System.out.print("\nDigite o nome do cliente: ");
-                        procurarCliente(teclado.nextLine()).exibir();
+                        ControleCliente.procurarCliente(teclado.nextLine()).exibir();
                         break;
                     case 5:
                         System.out.print("\nDigite o nome do funcionario: ");
-                        procurarFuncionario(teclado.nextLine()).exibir();
+                        ControleFuncionario.procurarFuncionario(teclado.nextLine()).exibir();
                         break;
                     case 6:
                         System.out.println("\nDigite a opcão a ser procurada: \ng - genero \nc - codigo\np - preço\n");
-                        procurarProduto(teclado.nextLine()).exibirProduto(); // como exibir?
+                        ControleProduto.procurarProduto(teclado.nextLine()).exibirProduto(); // como exibir?
                         break;
                     case 7:
                         System.out.println("Digite o nome do cliente a ser excluido: ");
-                        excluirCliente(teclado.nextLine());
+                        ControleCliente.excluirCliente(teclado.nextLine());
                         break;
                     case 8 :
                         System.out.println("Digite o nome do funcionario a ser excluido:");
-                        excluirFuncionario(teclado.nextLine());
+                        ControleFuncionario.excluirFuncionario(teclado.nextLine());
                         break;
                     case 9:
                         System.out.println("Digite o produto a ser excluido: ");
-                        excluirProduto(teclado.nextLine());
+                        ControleProduto.excluirProduto(teclado.nextLine());
                         break;
                     case 10:
                         menuMetodos();
@@ -132,144 +117,7 @@ public class BlocksFilmesProjeto {
             //chama metodo
         }
     }
-
-    public static Cliente cadastrarCliente() {
-        Cliente cliente = Cliente.cadastrarCliente();
-        listaCliente.add(cliente);
-        System.out.println("O cliente " + cliente.getNome() + " foi cadastrado com sucesso!\n");
-        
-        return cliente;
-    }
-
-    public static Funcionario cadastrarFuncionario() {
-        Funcionario funcionario = Funcionario.cadastrarFuncionario();
-        listaFuncionario.add(funcionario);
-
-        return funcionario;
-    }
-
-    public static Produto cadastrarProduto() {
-        Produto produto = Produto.cadastrarProduto();
-        listaProduto.add(produto);
-        return produto;
-    }
-
-    public static Cliente procurarCliente(String codigoProcurar) {
-               for (Cliente cliente : listaCliente) {
-            if (cliente.getNome().toLowerCase().startsWith(codigoProcurar.toLowerCase())) {
-                return cliente;
-            }
-        }
-        return null;
-        /*try{
-            return null;
-        }
-        catch (NullPointerException e) {
-            System.out.println("ERRO!\nNão há cliente com esse nome registrado!");
-        }*/
-    }
-
-    public static Funcionario procurarFuncionario(String codigoProcurar) {
-        
-        for (Funcionario funcionario : listaFuncionario) {
-            if (funcionario.getNome().toLowerCase().startsWith(codigoProcurar.toLowerCase())) {
-                return funcionario;
-            }
-        }
-        return null;
-        /*try{
-            return null;
-        }
-        catch (NullPointerException e) {
-            System.out.println("ERRO!\nNão há funcionario com esse nome registrado!");
-        }*/
-    }
-
-    public static Produto procurarProduto(String codigoProcurar) { //revisar
-
-        switch (codigoProcurar.toLowerCase()){
-
-            case "g" :
-            System.out.println("Digite o gênero a ser procurado: ");
-            codigoProcurar = (teclado.next());
-
-            for (Produto produto : listaProduto) {  
-                if (produto.getGenero().toLowerCase().startsWith(codigoProcurar))
-                    return produto;
-            }
-            break;
-
-            case "c": 
-            System.out.println("Digite o código a ser procurado: ");
-            codigoProcurar = (teclado.next());
-            for (Produto produto : listaProduto) {
-                if (produto.getCodigo().toLowerCase().startsWith(codigoProcurar))
-                    return produto;
-            
-            }
-            break;
-
-            /*case "p" :
-            System.out.println("Digite o preço a ser procurado: ");
-            codigoProcurar = (teclado.next());
-            for(Produto produto : listaProduto){
-                if(produto.getAluguel().)
-            }
-            produto.getAluguel().equals(codigoProcurar); // string se igualar a int
-            return produto;
-            
-            break;*/
-            }
-        
-        return null;
-        /*try{
-            return null;
-        }
-        catch (NullPointerException e) {
-            System.out.println("ERRO!\nEsse produto não está registrado!");
-        }*/
-    }
-
-    public static void excluirCliente(String codigoExcluir) {
-        Cliente cliente = procurarCliente(codigoExcluir);
-        
-        System.out.println("\nTem certeza que deseja excluir " + cliente.getNome() +" ?");
-
-        if (opcaoSN()){ // ver
-            listaCliente.remove(cliente);
-            System.out.println("O cliente" + cliente.getNome() +" foi excluído com sucesso!");
-        }
-        else
-        System.out.println("Voltando ao menu principal.");    
-    }
-
-    public static void excluirFuncionario(String codigoExcluir) {
-        Funcionario funcionario = procurarFuncionario(codigoExcluir);
-        
-        System.out.println("\nTem certeza que deseja excluir " + funcionario.getNome() +" ?");
-
-        if(opcaoSN()){
-            listaFuncionario.remove(funcionario);
-            System.out.println("O funcionario" +funcionario.getNome() +" foi excluido com sucesso!");
-        }
-        else
-        System.out.println("Voltando ao menu principal.");
-        
-    }
-
-    public static void excluirProduto(String codigoExcluir) {
-        Produto produto = procurarProduto(codigoExcluir);
-        System.out.println("\nTem certeza que deseja excluir " + produto.getTitulo() +" ?");
-
-        if(opcaoSN()){
-            listaFuncionario.remove(produto);
-            System.out.println("O funcionario" +produto.getTitulo() +" foi excluido com sucesso!");
-        }
-        else
-        System.out.println("Voltando ao menu principal.");
-
-    }
-
+    
     public static void esperador() {
         
         try {

@@ -67,11 +67,25 @@ public class Cliente extends Pessoa implements IPessoa {
         this.telefone = telefone;
 
         telefone.replaceAll("\\D", "");
+        boolean validacao;
+        
 
-        if (telefone.replaceAll("\\D","").length() != 11)
-        throw new IllegalArgumentException("Telefone deve conter 11 números");
+        do{
+            validacao = true;
+            try{
+             if (telefone.replaceAll("\\D","").length() != 11)
+            throw new IllegalArgumentException("Telefone deve conter 11 números. Insira-o novamente");
+        } catch (IllegalArgumentException e){
+            System.out.println(e.getMessage() + "\n");
+            validacao = false;
+        }
+    } while (!validacao);
+
+    //return telefone.length() = 0;
         // tratar exceção para não explodir o codigo e parar a compilação
 
     }
+
+
 
 }
