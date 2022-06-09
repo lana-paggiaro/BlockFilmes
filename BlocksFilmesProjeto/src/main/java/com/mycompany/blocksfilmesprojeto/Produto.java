@@ -13,11 +13,15 @@ public class Produto {
 
     // construtores
 
-    public void Produto() {
-
+    public Produto() {
+        titulo = "";
+        genero = "";
+        lancamento = "";
+        aluguel = 0;
+        codigo = "";
     }
 
-    public void Produto(String titulo, String genero, String lancamento, float aluguel, String codigo){
+    public Produto(String titulo, String genero, String lancamento, float aluguel, String codigo){
         this.titulo = titulo;
         this.genero = genero;
         this.lancamento = lancamento;
@@ -55,13 +59,6 @@ public class Produto {
         System.out.print("\nInsira o código do filme: ");
         produto.setCodigo(teclado.nextLine());
         System.out.println();
-
-        /*
-         * System.out.
-         * print("\nO filme está disponivel (true) ou indisponivel (false)?: ");
-         * produto.setDisponibilidade(teclado.nextBoolean());
-         */
-
         return produto;
     }
 
@@ -106,8 +103,11 @@ public class Produto {
 
     public void setCodigo(String codigo) {
         this.codigo = codigo;
+        codigo.replaceAll("\\D", "");
 
-        //excessão de ter apenas 4 digitos
+        if (codigo.replaceAll("\\D","").length() != 4)
+        throw new IllegalArgumentException("O codigo deve conter 4 números");
+        // tratar essa excessão de ter apenas 4 digitos para n parar compilação de código
     }
 
     

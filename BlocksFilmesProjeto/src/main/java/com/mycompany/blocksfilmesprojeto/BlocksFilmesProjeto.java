@@ -12,6 +12,17 @@ public class BlocksFilmesProjeto {
     private static ArrayList<Produto> listaProduto = new ArrayList<Produto>();
 
     public static void main(String[] args) {
+        listaCliente.add(new Cliente("Antonio", 45, "56483567281", "antoninho@hotmail.com", "19945683956"));
+        listaCliente.add(new Cliente("Samara", 32, "658356913502", "samsam@hotmail.com", "19583957295"));
+        //exceção de return null??? socorro meida
+
+        listaFuncionario.add(new Funcionario("Everton", 52, "45738593848", "everTown@yahoo.com.br", "atendente", "1500"));
+        listaFuncionario.add(new Funcionario("Rosangela", 29, "84935867495", "rosan@gmail.com", "faxineira", "1100"));
+        //exceção de return null??? socorro meida
+
+        listaProduto.add(new Produto("Shrek 2", "Animacao", "22/06/2001", (float) 25.50, "1234"));
+        listaProduto.add(new Produto("Morbius", "Acao", "31/03/2022", (float) 20.75, "0000"));
+
         boolean algolegal = true;
         int opcao;
         do { // fazer um pressione tecla para continuar
@@ -60,7 +71,7 @@ public class BlocksFilmesProjeto {
                         procurarFuncionario(teclado.nextLine()).exibir();
                         break;
                     case 6:
-                        System.out.println("\nDigite a opcão a ser procurada: \nn - nome \ng - genero \np - preço\n");
+                        System.out.println("\nDigite a opcão a ser procurada: \ng - genero \nc - codigo\np - preço\n");
                         procurarProduto(teclado.nextLine()).exibirProduto(); // como exibir?
                         break;
                     case 7:
@@ -181,6 +192,7 @@ public class BlocksFilmesProjeto {
             case "g" :
             System.out.println("Digite o gênero a ser procurado: ");
             codigoProcurar = (teclado.next());
+
             for (Produto produto : listaProduto) {  
                 if (produto.getGenero().toLowerCase().startsWith(codigoProcurar))
                     return produto;
@@ -195,11 +207,18 @@ public class BlocksFilmesProjeto {
                     return produto;
             
             }
+            break;
 
             /*case "p" :
             System.out.println("Digite o preço a ser procurado: ");
+            codigoProcurar = (teclado.next());
+            for(Produto produto : listaProduto){
+                if(produto.getAluguel().)
+            }
             produto.getAluguel().equals(codigoProcurar); // string se igualar a int
-            return produto;*/
+            return produto;
+            
+            break;*/
             }
         
         return null;
@@ -279,10 +298,6 @@ public class BlocksFilmesProjeto {
         return opcao == 's';
     }
 
-    /*public static void preDefinidos(){
-        Cliente cliente = new Cliente("Antonio", 45, "12345678901", "ant@yahoo.com.br", "190567895");
-        Funcionario funcionario = new Funcionario("Everton", 34, "09876543210", "everton@gmail.com", "Locador", 1200);
-        Produto produto = new Produto("Gente Grande 2", "String genero", String lancamento, float aluguel, String codigo);
-    }*/
+   
 }
 

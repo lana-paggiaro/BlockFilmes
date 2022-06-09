@@ -7,16 +7,16 @@ public class Cliente extends Pessoa implements IPessoa {
     protected String telefone;
 
     // construtores
-    public void Cliente() {
-
+    public Cliente(String nome, int idade, String cpf, String email, String telefone) {
     }
 
-    public void Cliente(String nome, int idade, String cpf, String email, String telefone) {
-        this.nome = nome;
-        this.idade = idade;
-        this.cpf = cpf;
-        this.email = email;
-        this.telefone = telefone;
+   
+    public Cliente() {
+        nome = "";
+        idade = 0;
+        cpf = "";
+        email = "";
+        telefone = "";
     }
     
     // metodos
