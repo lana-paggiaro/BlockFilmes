@@ -1,4 +1,3 @@
-
 package com.mycompany.blocksfilmesprojeto;
 
 import java.util.Scanner;
@@ -9,7 +8,7 @@ public class Produto {
     protected String lancamento;
     protected float aluguel;//preço
     protected String codigo;
-    
+
 
     // construtores
 
@@ -21,22 +20,12 @@ public class Produto {
         codigo = "";
     }
 
-    public Produto(String titulo, String genero, String lancamento, float aluguel, String codigo){
+    public Produto(String titulo, String genero, String lancamento, float aluguel, String codigo) {
         this.titulo = titulo;
         this.genero = genero;
         this.lancamento = lancamento;
         this.aluguel = aluguel;
         this.codigo = codigo;
-    }
-
-    // metodos
-    public void exibirProduto() {
-        System.out.println("Titulo: " + titulo);
-        System.out.println("Genero: " + genero);
-        System.out.println("Lançamento: " + lancamento);
-        System.out.println("Preço de aluguel: R$" + aluguel);
-        System.out.println("Código do Filme: "+ codigo);
-        // System.out.println("Disponibilidade: "+ disponibilidade);
     }
 
     public static Produto cadastrarProduto() {
@@ -60,6 +49,16 @@ public class Produto {
         produto.setCodigo(teclado.nextLine());
         System.out.println();
         return produto;
+    }
+
+    // metodos
+    public void exibirProduto() {
+        System.out.println("Titulo: " + titulo);
+        System.out.println("Genero: " + genero);
+        System.out.println("Lançamento: " + lancamento);
+        System.out.println("Preço de aluguel: R$" + aluguel);
+        System.out.println("Código do Filme: " + codigo);
+        // System.out.println("Disponibilidade: "+ disponibilidade);
     }
 
     // getters e setters
@@ -105,11 +104,10 @@ public class Produto {
         this.codigo = codigo;
         codigo.replaceAll("\\D", "");
 
-        if (codigo.replaceAll("\\D","").length() != 4)
-        throw new IllegalArgumentException("O codigo deve conter 4 números");
+        if (codigo.replaceAll("\\D", "").length() != 4)
+            throw new IllegalArgumentException("O codigo deve conter 4 números");
         // tratar essa excessão de ter apenas 4 digitos para n parar compilação de código
     }
 
-    
 
 }

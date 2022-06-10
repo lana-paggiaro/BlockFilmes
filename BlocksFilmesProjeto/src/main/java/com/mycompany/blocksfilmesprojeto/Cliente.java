@@ -1,4 +1,3 @@
-
 package com.mycompany.blocksfilmesprojeto;
 
 import java.util.Scanner;
@@ -10,23 +9,12 @@ public class Cliente extends Pessoa implements IPessoa {
     public Cliente(String nome, int idade, String cpf, String email, String telefone) {
     }
 
-   
     public Cliente() {
         nome = "";
         idade = 0;
         cpf = "";
         email = "";
         telefone = "";
-    }
-    
-    // metodos
-    @Override
-    public void exibir() {
-        System.out.println("Nome: " + nome);
-        System.out.println("Idade: " + idade);
-        System.out.println("Cpf: " + cpf);
-        System.out.println("Email: " + email);
-        System.out.println("Telefone:" + telefone);
     }
 
     public static Cliente cadastrarCliente() {
@@ -42,12 +30,12 @@ public class Cliente extends Pessoa implements IPessoa {
         System.out.print("\nDigite seu cpf: ");
         cliente.setCpf(teclado.next());
         teclado.nextLine();
-        
+
 
         System.out.print("\nDigite seu email: ");
         cliente.setEmail(teclado.next());
         teclado.nextLine();
-        
+
 
         System.out.print("\nDigite seu telefone: ");
         cliente.setTelefone(teclado.next());
@@ -55,6 +43,16 @@ public class Cliente extends Pessoa implements IPessoa {
         System.out.println();
 
         return cliente;
+    }
+
+    // metodos
+    @Override
+    public void exibir() {
+        System.out.println("Nome: " + nome);
+        System.out.println("Idade: " + idade);
+        System.out.println("Cpf: " + cpf);
+        System.out.println("Email: " + email);
+        System.out.println("Telefone:" + telefone);
     }
 
     // getters e setters
@@ -65,27 +63,29 @@ public class Cliente extends Pessoa implements IPessoa {
 
     public void setTelefone(String telefone) {
         this.telefone = telefone;
+        Scanner teclado = new Scanner(System.in);
 
-        telefone.replaceAll("\\D", "");
+        telefone = telefone.replaceAll("\\D", "");
+
         boolean validacao;
-        
 
-        do{
-            validacao = true;
-            try{
-             if (telefone.replaceAll("\\D","").length() != 11)
-            throw new IllegalArgumentException("Telefone deve conter 11 números. Insira-o novamente");
-        } catch (IllegalArgumentException e){
-            System.out.println(e.getMessage() + "\n");
+        do {
             validacao = false;
-        }
-    } while (!validacao);
+            try {
+                if (telefone.replaceAll("\\D", "").length() == 11) {
+                    validacao = true;
+                    this.telefone = telefone;
+                } else {
+                    throw new IllegalArgumentException("Telefone deve conter 11 números. Insira-o novamente");
+                }
+            } catch (IllegalArgumentException e) {
+                System.out.println(e.getMessage() + "\n");
+                telefone = teclado.nextLine();
+            }
+        } while (!validacao);
 
-    //return telefone.length() = 0;
-        // tratar exceção para não explodir o codigo e parar a compilação
 
     }
-
 
 
 }

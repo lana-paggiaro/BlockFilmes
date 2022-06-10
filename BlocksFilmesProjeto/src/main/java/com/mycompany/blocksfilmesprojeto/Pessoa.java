@@ -1,5 +1,6 @@
-
 package com.mycompany.blocksfilmesprojeto;
+
+import java.util.Scanner;
 
 public abstract class Pessoa {
     protected String nome;
@@ -26,10 +27,10 @@ public abstract class Pessoa {
         return idade;
     }
 
-    public void setIdade(int idade){
-        if( idade <=0 || idade> 100)
-        throw new IllegalArgumentException("O funcionário não deve ser menor de idade.");
-        
+    public void setIdade(int idade) {
+        if (idade <= 0 || idade > 100)
+            throw new IllegalArgumentException("O funcionário não deve ser menor de idade.");
+
         this.idade = idade;
     }
 
@@ -39,26 +40,42 @@ public abstract class Pessoa {
 
     public void setCpf(String cpf) {
         this.cpf = cpf;
-        cpf.replaceAll("\\D", "");
+        Scanner teclado = new Scanner(System.in);
 
-        if (cpf.replaceAll("\\D","").length() != 11)
-        throw new IllegalArgumentException("CPF deve conter 11 números");
-       
-        // fazer exceção de requerer 11 caracteres
+        cpf = cpf.replaceAll("\\D", "");
+
+        boolean validacao;
+
+        do {
+            validacao = false;
+            try {
+                if (cpf.replaceAll("\\D", "").length() == 11) {
+                    validacao = true;
+                    this.cpf = cpf;
+                } else {
+                    throw new IllegalArgumentException("Cpf deve conter 11 números. Insira-o novamente");
+                }
+            } catch (IllegalArgumentException e) {
+                System.out.println(e.getMessage() + "\n");
+                cpf = teclado.nextLine();
+            }
+        } while (!validacao);
+
     }
 
     public String getEmail() {
         return email;
-        
+
     }
 
     public void setEmail(String email) {
-        
+
         if (!email.contains("@"))
-        throw new IllegalArgumentException("O email deve conter, obrigatoriamente, @!");
+            throw new IllegalArgumentException("O email deve conter, obrigatoriamente, @!");
         //tratar essa exceção para n parar de compilar o codigo
 
         this.email = email;
-        
+
     }
 }
+

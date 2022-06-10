@@ -1,4 +1,3 @@
-
 package com.mycompany.blocksfilmesprojeto;
 
 import java.util.Scanner;
@@ -16,15 +15,6 @@ public class Funcionario extends Pessoa implements IPessoa {
 
     // metodos
 
-    public void exibir() {
-        System.out.println("Nome: " + nome);
-        System.out.println("Idade: " + idade);
-        System.out.println("Cpf: " + cpf);
-        System.out.println("Cargo: " + cargo);
-        System.out.println("Salario: " + salario);
-        System.out.println("Email: " + email);
-    }
-
     public static Funcionario cadastrarFuncionario() {
         Funcionario funcionario = new Funcionario();
         Scanner teclado = new Scanner(System.in);
@@ -34,7 +24,7 @@ public class Funcionario extends Pessoa implements IPessoa {
 
         System.out.print("\nDigite sua idade: ");
         funcionario.setIdade(teclado.nextInt());
-        
+
 
         System.out.print("\nDigite seu cpf: ");
         funcionario.setCpf(teclado.next());
@@ -43,7 +33,7 @@ public class Funcionario extends Pessoa implements IPessoa {
         System.out.print("\nDigite seu cargo: ");
         funcionario.setCargo(teclado.next());
         teclado.nextLine();
-        
+
 
         System.out.print("\nDigite seu salario: R$");
         funcionario.setSalario(teclado.nextFloat());
@@ -55,6 +45,15 @@ public class Funcionario extends Pessoa implements IPessoa {
         System.out.println();
 
         return funcionario;
+    }
+
+    public void exibir() {
+        System.out.println("Nome: " + nome);
+        System.out.println("Idade: " + idade);
+        System.out.println("Cpf: " + cpf);
+        System.out.println("Cargo: " + cargo);
+        System.out.println("Salario: " + salario);
+        System.out.println("Email: " + email);
     }
 
     // getters e settes
@@ -75,14 +74,15 @@ public class Funcionario extends Pessoa implements IPessoa {
     }
 
     @Override // sobrecarga pois funcionario n pode ser menor de 18 pq né
-    public void setIdade(int idade) { 
-    
+    public void setIdade(int idade) {
+
         if (idade < 16)
-        throw new IllegalArgumentException("O funcionário não deve ser menor de idade. Voltando ao menu principal");
+            throw new IllegalArgumentException("O funcionário não deve ser menor de idade. Voltando ao menu principal");
         super.setIdade(idade);
-        // exceção de idade <18 || idade > 100 - voltar ao menu principal 
-        
+        // exceção de idade <18 || idade > 100 - voltar ao menu principal
+
     }
-   
-    
+
+
 }
+

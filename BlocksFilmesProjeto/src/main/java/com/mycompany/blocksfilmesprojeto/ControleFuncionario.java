@@ -1,12 +1,15 @@
 package com.mycompany.blocksfilmesprojeto;
 
-import java.util.ArrayList; 
+import java.util.ArrayList;
 
 public class ControleFuncionario {
-    
+
     private static ArrayList<Funcionario> listaFuncionario = new ArrayList<Funcionario>();
-    listaFuncionario.add(new Funcionario("Everton", 52, "45738593848", "everTown@yahoo.com.br", "atendente", "1500"));
-    listaFuncionario.add(new Funcionario("Rosangela", 29, "84935867495", "rosan@gmail.com", "faxineira", "1100"));
+
+    public static ArrayList<Funcionario> getListaFuncionario() {
+        return listaFuncionario;
+    }
+
     //exceção de return null??? socorro*/
 
     public static Funcionario cadastrarFuncionario() {
@@ -18,7 +21,7 @@ public class ControleFuncionario {
     }
 
     public static Funcionario procurarFuncionario(String codigoProcurar) {
-        
+
         for (Funcionario funcionario : listaFuncionario) {
             if (funcionario.getNome().toLowerCase().startsWith(codigoProcurar.toLowerCase())) {
                 return funcionario;
@@ -35,17 +38,19 @@ public class ControleFuncionario {
 
     public static void excluirFuncionario(String codigoExcluir) {
         Funcionario funcionario = procurarFuncionario(codigoExcluir);
-        
-        System.out.println("\nTem certeza que deseja excluir " + funcionario.getNome() +" ?");
 
-        if(BlocksFilmesProjeto.opcaoSN()){
+        System.out.println("\nTem certeza que deseja excluir " + funcionario.getNome() + " ?");
+
+        if (BlocksFilmesProjeto.opcaoSN()) {
             listaFuncionario.remove(funcionario);
-            System.out.println("O funcionario" +funcionario.getNome() +" foi excluido com sucesso!");
-        }
-        else
-        System.out.println("Voltando ao menu principal.");
-        
+            System.out.println("O funcionario" + funcionario.getNome() + " foi excluido com sucesso!");
+        } else
+            System.out.println("Voltando ao menu principal.");
+
     }
 }
+
+
+
 
 
