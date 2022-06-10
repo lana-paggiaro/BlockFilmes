@@ -8,8 +8,9 @@ public class BlocksFilmesProjeto {
 
     public static void main(String[] args) {
 
-        ControleCliente.getListaCliente().add(new Cliente("Antonio", 45, "56483567281", "antoninho@hotmail.com", "19945683956"));
+        ControleCliente.getListaCliente().add(new Cliente("Antonio", 65, "56483567281", "antoninho@hotmail.com", "19945683956"));
         ControleCliente.getListaCliente().add(new Cliente("Samara", 32, "658356913502", "samsam@hotmail.com", "19583957295"));
+        ControleCliente.getListaCliente().add(new Cliente("Teodoro", 12, "85948367584", "Teo@gmail.com", "11859384576"));
 
         ControleProduto.getListaProduto().add(new Produto("Shrek 2","Animacao","22/06/2001",(float) 25.50,"1234"));
         ControleProduto.getListaProduto().add(new Produto("Morbius","Acao","31/03/2022",(float) 20.75,"0000"));
@@ -147,9 +148,11 @@ public class BlocksFilmesProjeto {
                 break;
 
             case 3:
-                //chama metodo
+                ControleCliente.ClientesMaioresQue60();
+                break;
+                
             case 4:
-                //chama metodo
+                ControleCliente.ClientesMenoresQue18();
                 break;
 
             case 5:

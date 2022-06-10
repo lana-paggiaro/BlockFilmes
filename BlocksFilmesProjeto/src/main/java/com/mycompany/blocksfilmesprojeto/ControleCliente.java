@@ -43,7 +43,7 @@ public class ControleCliente {
             System.out.println("Voltando ao menu principal.");
     }
 
-    static void ClienteMaisVelho() {
+    public static void ClienteMaisVelho() {
         Cliente clienteMaisVelho = listaCliente.get(0);
         for (Cliente c : listaCliente) {
             if (clienteMaisVelho.getIdade() < c.getIdade()) {
@@ -53,7 +53,7 @@ public class ControleCliente {
         clienteMaisVelho.exibir();
     }
 
-    static void ClienteMaisNovo(){
+    public static void ClienteMaisNovo(){
         Cliente clienteMaisNovo = listaCliente.get(0);
         for(Cliente c : listaCliente){
             if (clienteMaisNovo.getIdade() > c.getIdade()){
@@ -63,11 +63,25 @@ public class ControleCliente {
         clienteMaisNovo.exibir();
     }
         
-    // teste de push
-        //for (int i = 0; i < listaCliente.length; i++) {
-        //    if (listaCliente[i] >= maior) {
-        //        maior = listaCliente[i];
-        //        indiceMaior = i;
-        //    }
+    public static void ClientesMaioresQue60(){
+        Cliente clientesMaioresQue60 = listaCliente.get(0);
+        for(Cliente c : listaCliente){
+            if (clientesMaioresQue60.getIdade() >= 60){
+                clientesMaioresQue60 = c;
+            }
+            clientesMaioresQue60.exibir();
+        }
+    }
+
+    public static void ClientesMenoresQue18(){
+        Cliente clientesMenoresQue18 = listaCliente.get(0);
+        for(Cliente c : listaCliente){
+            if (clientesMenoresQue18.getIdade() <= 18){
+                clientesMenoresQue18 = c;
+            }
+            clientesMenoresQue18.exibir();
+        }
+    }
+    
 }
 
