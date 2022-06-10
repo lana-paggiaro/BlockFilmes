@@ -11,9 +11,9 @@ public class BlocksFilmesProjeto {
         ControleCliente.getListaCliente().add(new Cliente("Antonio", 45, "56483567281", "antoninho@hotmail.com", "19945683956"));
         ControleCliente.getListaCliente().add(new Cliente("Samara", 32, "658356913502", "samsam@hotmail.com", "19583957295"));
 
-        ControleProduto.getListaProduto().add(new Produto("Shrek 2","Animacao","22/06/2001",(float) 25.50,"1234"));
-        ControleProduto.getListaProduto().add(new Produto("Morbius","Acao","31/03/2022",(float) 20.75,"0000"));
-        ControleProduto.getListaProduto().add(new Produto("Velozes e Furiosos","Acao","28/09/2001",(float) 20.75,"5555"));
+        ControleProduto.getListaProduto().add(new Produto("Shrek 2","Animacao","22/06/2001", 25.50,"1234"));
+        ControleProduto.getListaProduto().add(new Produto("Morbius","Acao","31/03/2022", 20.75,"0000"));
+        ControleProduto.getListaProduto().add(new Produto("Velozes e Furiosos","Acao","28/09/2001", 20,"5555"));
 
 
         ControleFuncionario.getListaFuncionario().add(new Funcionario("Everton",52,"45738593848","everTown@yahoo.com.br","atendente",1500));
@@ -43,11 +43,12 @@ public class BlocksFilmesProjeto {
 
             switch (opcao) {
                 case 0:
-                    //System.out.println("Encerrando programa...");
+                    
                     algolegal = false;
                     break;
                 case 1:
                     ControleCliente.cadastrarCliente().exibir();
+                    
                     //por para exibir o que foi cadastrado
                     break;
                 case 2:
@@ -74,9 +75,11 @@ public class BlocksFilmesProjeto {
 
                             case "g":
                                 System.out.println("Digite o gênero a ser procurado: ");
-                                //ControleProduto.procurarPorGenero(teclado.nextLine());
-                                //ControleProduto.procurarProduto(ControleProduto.procurarPorGenero(teclado.nextLine())).exibirProduto();
-                                //Fazer exibir, n sei como, fodase
+                                
+                                for(Produto produto : ControleProduto.procurarPorGenero(teclado.nextLine())) {
+                                System.out.println("\n");
+                                produto.exibirProduto();
+                                }
 
                                 /*
                                 * Explicação: Já que a sua função "buscarPorGenero"  agoraretorna uma lista de produtos, o seu
@@ -92,14 +95,19 @@ public class BlocksFilmesProjeto {
                                 break;
                             case "c":
                                 System.out.println("Digite o código a ser procurado: ");
-                                ControleProduto.procurarPorCodigo(teclado.nextLine());
+                                //ControleProduto.procurarPorCodigo(teclado.nextLine()).exibirProduto(); //AAAAAAAAAAAAAAA     
+                                
+
                                 // Aqui o .exibirProduto() funciona, pois o procurarPorCodigo retorna um produto
                                 // e não uma lista deles.
                                 break;
 
                             case "p" :
                                 System.out.println("Digite o preço a ser procurado: ");
-                                ControleProduto.procurarPorPreco(teclado.nextDouble());
+                                
+                                for(Produto produto : ControleProduto.procurarPorPreco(teclado.nextDouble())) { //como achar por preço?
+                                    produto.exibirProduto();
+                                   }
                                 // Mesma lógica do procurarPorGenero(). Isso aqui vai retornar uma lista de produtos.
                                 // Só percorrer ela e ir exibindo cada produto.
 

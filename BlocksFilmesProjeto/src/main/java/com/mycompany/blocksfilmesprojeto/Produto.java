@@ -6,7 +6,7 @@ public class Produto {
     protected String titulo;
     protected String genero;
     protected String lancamento;
-    protected float aluguel;//preço
+    protected double aluguel;//preço
     protected String codigo;
 
 
@@ -20,7 +20,7 @@ public class Produto {
         codigo = "";
     }
 
-    public Produto(String titulo, String genero, String lancamento, float aluguel, String codigo) {
+    public Produto(String titulo, String genero, String lancamento, double aluguel, String codigo) {
         this.titulo = titulo;
         this.genero = genero;
         this.lancamento = lancamento;
@@ -42,7 +42,7 @@ public class Produto {
         produto.setLancamento(teclado.nextLine()); // por para receber data de maneira --/--/----
 
         System.out.print("\nInsira o preço de aluguel do filme: R$");
-        produto.setAluguel(teclado.nextFloat());
+        produto.setAluguel(teclado.nextDouble());
         teclado.nextLine();
 
         System.out.print("\nInsira o código do filme: ");
@@ -88,11 +88,11 @@ public class Produto {
         this.lancamento = lancamento;
     }
 
-    public float getAluguel() {
+    public double getAluguel() {
         return aluguel;
     }
 
-    public void setAluguel(float aluguel) {
+    public void setAluguel(double aluguel) {
         this.aluguel = aluguel;
     }
 

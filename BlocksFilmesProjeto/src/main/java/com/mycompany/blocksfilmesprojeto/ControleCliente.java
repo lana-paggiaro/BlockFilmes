@@ -6,7 +6,6 @@ public class ControleCliente {
 
     private static ArrayList<Cliente> listaCliente = new ArrayList<Cliente>();
 
-
     public static ArrayList<Cliente> getListaCliente() {
         return listaCliente;
     }
@@ -22,15 +21,14 @@ public class ControleCliente {
     public static Cliente procurarCliente(String procuraCliente) {
         System.out.println("Digitado: " + procuraCliente);
         for (Cliente cliente : listaCliente) {
-            System.out.println(cliente.getNome());
             if (cliente.getNome().toLowerCase().startsWith(procuraCliente.toLowerCase())) {
-                System.out.println("aaa");
+                System.out.println("\n");
                 return cliente;
             }
         }
-        return null; //erro de null
+        return null; // erro de null
 
-        //dar exceção de cliente não existente
+        // dar exceção de cliente não existente
     }
 
     public static void excluirCliente(String codigoExcluir) {
@@ -44,6 +42,5 @@ public class ControleCliente {
         } else
             System.out.println("Voltando ao menu principal.");
     }
-
 
 }
