@@ -109,6 +109,7 @@ public class BlocksFilmesProjeto {
                                 System.out.println("Digite o preço a ser procurado: ");
                                 try{
                                     for(Produto produto : ControleProduto.procurarPorPreco(teclado.nextFloat())) { //como achar por preço?
+                                        System.out.println("\n");
                                         produto.exibirProduto();
                                     }
                                 } catch (IllegalArgumentException e){

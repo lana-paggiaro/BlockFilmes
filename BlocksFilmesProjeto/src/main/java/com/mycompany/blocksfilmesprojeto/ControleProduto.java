@@ -26,7 +26,7 @@ public class ControleProduto {
             if (produto.getGenero().toLowerCase().startsWith(genero))
                 listaDeProdutosDeUmGenero.add(produto);
         }
-        if(listaDeProdutosDeUmGenero.size() >= 0)
+        if(listaDeProdutosDeUmGenero.size() <= 0)
             throw new IllegalArgumentException("Não há filme com esse gênero de filme.");
         return listaDeProdutosDeUmGenero;
     }
@@ -38,7 +38,7 @@ public class ControleProduto {
             if(produto.getAluguel() == preco) 
                 listaDeProdutosDeUmPreco.add(produto);
         }
-        if(listaDeProdutosDeUmPreco.size() >=0)
+        if(listaDeProdutosDeUmPreco.size() <=0)
             throw new IllegalArgumentException("Não há filme com esse preço.");
         return listaDeProdutosDeUmPreco;
     }
@@ -50,7 +50,7 @@ public class ControleProduto {
                 listaDeProdutosDeUmCodigo.add(produto);
 
         }
-        if(listaDeProdutosDeUmCodigo.size() >= 0)
+        if(listaDeProdutosDeUmCodigo.size() <= 0)
             throw new IllegalArgumentException("Não há filme com esse código");
         return listaDeProdutosDeUmCodigo;
     }

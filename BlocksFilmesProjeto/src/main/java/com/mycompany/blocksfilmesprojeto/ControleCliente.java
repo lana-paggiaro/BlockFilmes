@@ -39,7 +39,7 @@ public class ControleCliente {
 
         if (BlocksFilmesProjeto.opcaoSN()) { // ver
             listaCliente.remove(cliente);
-            System.out.println("O cliente" + cliente.getNome() + " foi excluído com sucesso!");
+            System.out.println("O cliente " + cliente.getNome() + " foi excluído com sucesso!");
         } else
             System.out.println("Voltando ao menu principal.");
     }

@@ -41,7 +41,7 @@ public class ControleFuncionario {
 
         if (BlocksFilmesProjeto.opcaoSN()) {
             listaFuncionario.remove(funcionario);
-            System.out.println("O funcionario" + funcionario.getNome() + " foi excluido com sucesso!");
+            System.out.println("O funcionario " + funcionario.getNome() + " foi excluido com sucesso!");
         } 
 
     }
