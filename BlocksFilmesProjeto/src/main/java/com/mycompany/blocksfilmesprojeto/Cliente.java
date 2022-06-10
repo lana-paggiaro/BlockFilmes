@@ -6,14 +6,25 @@ public class Cliente extends Pessoa implements IPessoa {
     protected String telefone;
 
     // construtores
+    /*
+    * Seu construtor ta vazio, você só ta passando os parametros mas não ta passando
+    * pra superclasse com o super(), por isso ta dando NullPointer na hora de buscar
+    * um cliente, afinal, o nome ta ficando como null pois vc nao ta setando ele.
+    *
+    * public Cliente(String nome, int idade, String cpf, String email, String telefone) {
+    *
+    * }
+    */
+
     public Cliente(String nome, int idade, String cpf, String email, String telefone) {
+        super(nome, idade, cpf, email);
+        this.telefone = telefone;
     }
 
     public Cliente() {
-        nome = "";
-        idade = 0;
-        cpf = "";
-        email = "";
+        // Passando valores vazios para a super classe, que vai cuidar da idade, email, e etc.
+        super("", 0, "", "");
+        // Ja que a classe Cliente vai ser responsável pelo telefone, a gente seta ele aqui
         telefone = "";
     }
 

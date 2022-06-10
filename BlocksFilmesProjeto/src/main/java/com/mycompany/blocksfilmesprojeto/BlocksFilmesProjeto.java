@@ -16,8 +16,8 @@ public class BlocksFilmesProjeto {
         ControleProduto.getListaProduto().add(new Produto("Velozes e Furiosos","Acao","28/09/2001",(float) 20.75,"5555"));
 
 
-        ControleFuncionario.getListaFuncionario().add(new Funcionario("Everton",52,"45738593848","everTown@yahoo.com.br","atendente","1500"));
-        ControleFuncionario.getListaFuncionario().add(new Funcionario("Rosangela",29,"84935867495","rosan@gmail.com","faxineira","1100"));
+        ControleFuncionario.getListaFuncionario().add(new Funcionario("Everton",52,"45738593848","everTown@yahoo.com.br","atendente",1500));
+        ControleFuncionario.getListaFuncionario().add(new Funcionario("Rosangela",29,"84935867495","rosan@gmail.com","faxineira",1100));
 
         boolean algolegal = true;
         int opcao;
@@ -69,29 +69,39 @@ public class BlocksFilmesProjeto {
                 case 6:
                     System.out.println("\nDigite a opcão a ser procurada: \ng - genero \nc - codigo\np - preço\n");
                     String escolha = teclado.nextLine();
-                        
+
                     switch (escolha.toLowerCase()) {
-                        
+
                             case "g":
                                 System.out.println("Digite o gênero a ser procurado: ");
-                                //ControleProduto.procurarPorGenero(teclado.nextLine()); 
+                                //ControleProduto.procurarPorGenero(teclado.nextLine());
                                 //ControleProduto.procurarProduto(ControleProduto.procurarPorGenero(teclado.nextLine())).exibirProduto();
                                 //Fazer exibir, n sei como, fodase
-                                
+
+                                /*
+                                * Explicação: Já que a sua função "buscarPorGenero"  agoraretorna uma lista de produtos, o seu
+                                * metodo exibirProduto não vai funcionar, pq ele só funciona para uma instância de Produto
+                                * e não para uma lista de produtos. O que você pode fazer é percorrer a lista de produtos
+                                * que o procurarPorGenero() retorna e fazer .exibirProduto() em cada produto dessa lista.
+                                * Mais ou menos assim:
+                                * for(Produto produto : procurarPorGenero(teclado.nextLine()) {
+                                *   produto.exibirProduto();
+                                * }
+                                * */
 
                                 break;
-
                             case "c":
                                 System.out.println("Digite o código a ser procurado: ");
                                 ControleProduto.procurarPorCodigo(teclado.nextLine());
-                                //fazer exibir
-
+                                // Aqui o .exibirProduto() funciona, pois o procurarPorCodigo retorna um produto
+                                // e não uma lista deles.
                                 break;
 
                             case "p" :
                                 System.out.println("Digite o preço a ser procurado: ");
-                                ControleProduto.procurarPorPreco(teclado.nextDouble()); 
-                                //fazer exibir
+                                ControleProduto.procurarPorPreco(teclado.nextDouble());
+                                // Mesma lógica do procurarPorGenero(). Isso aqui vai retornar uma lista de produtos.
+                                // Só percorrer ela e ir exibindo cada produto.
 
                             break;
                     }
