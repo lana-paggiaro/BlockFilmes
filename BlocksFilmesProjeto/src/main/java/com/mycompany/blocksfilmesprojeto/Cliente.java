@@ -81,7 +81,7 @@ public class Cliente extends Pessoa implements IPessoa {
         boolean validacao;
 
         do {
-            validacao = false;
+            validacao = true;
             try {
                 if (telefone.replaceAll("\\D", "").length() == 11) {
                     validacao = true;

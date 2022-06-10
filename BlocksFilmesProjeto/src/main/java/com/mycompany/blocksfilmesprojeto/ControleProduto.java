@@ -79,16 +79,26 @@ public class ControleProduto {
         }
     }
 
-    static void MediaPrecoProdutos() {
-        int mediaPreco = 0;
+    public static Float MediaPrecoProdutos() {
+        float mediaPreco = 0;
 
         for (Produto p : listaProduto) {
             mediaPreco += p.getAluguel();
         }
         mediaPreco = mediaPreco / listaProduto.size();
         System.out.println("A média de idade dos clientes e: " + mediaPreco);
-
+        return mediaPreco;
     }
 
+    public static void PrecoAcimaMedia(){
+        int valores = 0;
+        float variavel = MediaPrecoProdutos();
+        for(Produto c : listaProduto){
+            if (c.getAluguel() > variavel){
+                valores++;
+            }
+        }
+        System.out.println("A quantidade de preços acima da média é de: "+ valores);
+    }
 }
 

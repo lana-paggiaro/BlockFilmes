@@ -160,7 +160,7 @@ public class BlocksFilmesProjeto {
                 break;
 
             case 6:
-                //chama metodo
+                ControleProduto.PrecoAcimaMedia();
         }
     }
 
