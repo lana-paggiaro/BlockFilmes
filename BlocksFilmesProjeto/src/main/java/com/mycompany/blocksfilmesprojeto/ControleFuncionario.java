@@ -23,17 +23,15 @@ public class ControleFuncionario {
     public static Funcionario procurarFuncionario(String codigoProcurar) {
 
         for (Funcionario funcionario : listaFuncionario) {
-            if (funcionario.getNome().toLowerCase().startsWith(codigoProcurar.toLowerCase())) {
+            if (!(funcionario.getNome().toLowerCase().startsWith(codigoProcurar.toLowerCase()))) {
+               
+            } else {
+                System.out.println("\n");
                 return funcionario;
             }
         }
-        return null;
-        /*try{
-            return null;
-        }
-        catch (NullPointerException e) {
-            System.out.println("ERRO!\nNão há funcionario com esse nome registrado!");
-        }*/
+        throw new IllegalArgumentException("Funcionario não cadastrado.");
+        
     }
 
     public static void excluirFuncionario(String codigoExcluir) {
@@ -44,8 +42,7 @@ public class ControleFuncionario {
         if (BlocksFilmesProjeto.opcaoSN()) {
             listaFuncionario.remove(funcionario);
             System.out.println("O funcionario" + funcionario.getNome() + " foi excluido com sucesso!");
-        } else
-            System.out.println("Voltando ao menu principal.");
+        } 
 
     }
 }

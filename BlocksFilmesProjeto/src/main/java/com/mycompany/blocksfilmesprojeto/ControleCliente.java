@@ -19,16 +19,17 @@ public class ControleCliente {
     }
 
     public static Cliente procurarCliente(String procuraCliente) {
-        System.out.println("Digitado: " + procuraCliente);
+        //System.out.println("Digitado: " + procuraCliente);
         for (Cliente cliente : listaCliente) {
-            if (cliente.getNome().toLowerCase().startsWith(procuraCliente.toLowerCase())) {
+            if (!(cliente.getNome().toLowerCase().startsWith(procuraCliente.toLowerCase()))) {
+               
+            } else {
                 System.out.println("\n");
                 return cliente;
             }
         }
-        return null; // erro de null
-
-        // dar exceção de cliente não existente
+        throw new IllegalArgumentException("Cliente não existe.");
+        
     }
 
     public static void excluirCliente(String codigoExcluir) {

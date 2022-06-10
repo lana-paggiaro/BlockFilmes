@@ -26,17 +26,20 @@ public class ControleProduto {
             if (produto.getGenero().toLowerCase().startsWith(genero))
                 listaDeProdutosDeUmGenero.add(produto);
         }
+        if(listaDeProdutosDeUmGenero.size() >= 0)
+            throw new IllegalArgumentException("Não há filme com esse gênero de filme.");
         return listaDeProdutosDeUmGenero;
     }
 
     public static ArrayList<Produto> procurarPorPreco(Float preco) {
 
-        // ArrayList<Produto> listaDeProdutosDeUmPreço = new ArrayList<Produto>(); <-- Nao use caractere especial em nome de variavel
         ArrayList<Produto> listaDeProdutosDeUmPreco = new ArrayList<Produto>();
         for(Produto produto : listaProduto){
-            if(produto.getAluguel() == preco) // float digitado se igualar a preço
+            if(produto.getAluguel() == preco) 
                 listaDeProdutosDeUmPreco.add(produto);
         }
+        if(listaDeProdutosDeUmPreco.size() >=0)
+            throw new IllegalArgumentException("Não há filme com esse preço.");
         return listaDeProdutosDeUmPreco;
     }
 
@@ -47,6 +50,8 @@ public class ControleProduto {
                 listaDeProdutosDeUmCodigo.add(produto);
 
         }
+        if(listaDeProdutosDeUmCodigo.size() >= 0)
+            throw new IllegalArgumentException("Não há filme com esse código");
         return listaDeProdutosDeUmCodigo;
     }
 
@@ -86,7 +91,7 @@ public class ControleProduto {
             mediaPreco += p.getAluguel();
         }
         mediaPreco = mediaPreco / listaProduto.size();
-        System.out.println("A média de idade dos clientes e: " + mediaPreco);
+        System.out.println("A média dos preços é: " + mediaPreco);
         return mediaPreco;
     }
 

@@ -61,11 +61,19 @@ public class BlocksFilmesProjeto {
                     break;
                 case 4:
                     System.out.print("\nDigite o nome do cliente: ");
-                    ControleCliente.procurarCliente(teclado.nextLine()).exibir();
+                    try{
+                        ControleCliente.procurarCliente(teclado.nextLine()).exibir();
+                    } catch (IllegalArgumentException e){
+                        System.out.println(e.getMessage() + "\n");
+                    }
                     break;
                 case 5:
                     System.out.print("\nDigite o nome do funcionario: ");
-                    ControleFuncionario.procurarFuncionario(teclado.nextLine()).exibir();
+                    try{
+                        ControleFuncionario.procurarFuncionario(teclado.nextLine()).exibir();
+                    } catch (IllegalArgumentException e){
+                        System.out.println(e.getMessage() + "\n");
+                    }
                     break;
                 case 6:
                     System.out.println("\nDigite a opcão a ser procurada: \ng - genero \nc - codigo\np - preço\n");
@@ -75,45 +83,66 @@ public class BlocksFilmesProjeto {
 
                             case "g":
                                 System.out.println("Digite o gênero a ser procurado: ");
-                                
-                                for(Produto produto : ControleProduto.procurarPorGenero(teclado.nextLine())) {
-                                System.out.println("\n");
-                                produto.exibirProduto();
+                                try{
+                                    for(Produto produto : ControleProduto.procurarPorGenero(teclado.nextLine())) {
+                                        System.out.println("\n");
+                                        produto.exibirProduto();
+                                    } 
+                                }catch (IllegalArgumentException e){
+                                    System.out.println(e.getMessage()+ "\n");
                                 }
-
                                 break;
                             case "c":
                                 System.out.println("Digite o código a ser procurado: ");
-                                //ControleProduto.procurarPorCodigo(teclado.nextLine()).exibirProduto(); //AAAAAAAAAAAAAAA     
-                                for(Produto produto : ControleProduto.procurarPorCodigo(teclado.nextLine())) {
-                                    System.out.println("\n");
-                                    produto.exibirProduto();
+                                try{
+                                    for(Produto produto : ControleProduto.procurarPorCodigo(teclado.nextLine())) {
+                                        System.out.println("\n");
+                                        produto.exibirProduto();
+                                    }
+                                }  catch (IllegalArgumentException e){
+                                    System.out.println(e.getMessage()+"\n");
                                 }
 
                             break;
 
                             case "p" :
                                 System.out.println("Digite o preço a ser procurado: ");
-                                
-                                for(Produto produto : ControleProduto.procurarPorPreco(teclado.nextFloat())) { //como achar por preço?
-                                    produto.exibirProduto();
-                                   }
-
+                                try{
+                                    for(Produto produto : ControleProduto.procurarPorPreco(teclado.nextFloat())) { //como achar por preço?
+                                        produto.exibirProduto();
+                                    }
+                                } catch (IllegalArgumentException e){
+                                    System.out.println(e.getMessage() +"\n");
+                                }
                             break;
                     }
                      
                     break;
                 case 7:
                     System.out.println("Digite o nome do cliente a ser excluido: ");
-                    ControleCliente.excluirCliente(teclado.nextLine());
+                    try{
+                        ControleCliente.excluirCliente(teclado.nextLine());
+                    } catch (IllegalArgumentException e){
+                        System.out.println(e.getMessage() + "\n");   
+                    }
                     break;
+
                 case 8:
                     System.out.println("Digite o nome do funcionario a ser excluido:");
-                    ControleFuncionario.excluirFuncionario(teclado.nextLine());
+                    try{
+                        ControleFuncionario.excluirFuncionario(teclado.nextLine());
+                    } catch (IllegalArgumentException e){
+                        System.out.println(e.getMessage() + "\n");
+                    }
                     break;
                 case 9:
                     System.out.println("Digite o código do produto a ser excluido: ");
-                    ControleProduto.excluirProduto(teclado.nextLine());
+                    try{
+
+                        ControleProduto.excluirProduto(teclado.nextLine());
+                    } catch(IllegalArgumentException e){
+                        System.out.println(e.getMessage() + "\n");
+                    }
                     break;
                 case 10:
                     menuMetodos();
