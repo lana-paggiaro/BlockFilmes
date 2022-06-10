@@ -11,9 +11,9 @@ public class BlocksFilmesProjeto {
         ControleCliente.getListaCliente().add(new Cliente("Antonio", 45, "56483567281", "antoninho@hotmail.com", "19945683956"));
         ControleCliente.getListaCliente().add(new Cliente("Samara", 32, "658356913502", "samsam@hotmail.com", "19583957295"));
 
-        ControleProduto.getListaProduto().add(new Produto("Shrek 2","Animacao","22/06/2001", 25.50,"1234"));
-        ControleProduto.getListaProduto().add(new Produto("Morbius","Acao","31/03/2022", 20.75,"0000"));
-        ControleProduto.getListaProduto().add(new Produto("Velozes e Furiosos","Acao","28/09/2001", 20,"5555"));
+        ControleProduto.getListaProduto().add(new Produto("Shrek 2","Animacao","22/06/2001",(float) 25.50,"1234"));
+        ControleProduto.getListaProduto().add(new Produto("Morbius","Acao","31/03/2022",(float) 20.75,"0000"));
+        ControleProduto.getListaProduto().add(new Produto("Velozes e Furiosos","Acao","28/09/2001",(float) 20,"5555"));
 
 
         ControleFuncionario.getListaFuncionario().add(new Funcionario("Everton",52,"45738593848","everTown@yahoo.com.br","atendente",1500));
@@ -21,7 +21,7 @@ public class BlocksFilmesProjeto {
 
         boolean algolegal = true;
         int opcao;
-        do { // fazer um pressione tecla para continuar
+        do { 
             System.out.println("\nBEM-VINDO AO BLOCKSFILMES!\n");
             System.out.println("Verifique as opções de cadastro abaixo:");
             System.out.println("Opção 1 -  Cadastro de Cliente");
@@ -49,15 +49,15 @@ public class BlocksFilmesProjeto {
                 case 1:
                     ControleCliente.cadastrarCliente().exibir();
                     
-                    //por para exibir o que foi cadastrado
+                   
                     break;
                 case 2:
                     ControleFuncionario.cadastrarFuncionario().exibir();
-                    //por pra exibir o que foi cadastrado
+                   
                     break;
                 case 3:
                     ControleProduto.cadastrarProduto().exibirProduto();
-                    //por paa exibir oq foi cadastrado
+                    
                     break;
                 case 4:
                     System.out.print("\nDigite o nome do cliente: ");
@@ -96,16 +96,19 @@ public class BlocksFilmesProjeto {
                             case "c":
                                 System.out.println("Digite o código a ser procurado: ");
                                 //ControleProduto.procurarPorCodigo(teclado.nextLine()).exibirProduto(); //AAAAAAAAAAAAAAA     
-                                
+                                for(Produto produto : ControleProduto.procurarPorCodigo(teclado.nextLine())) {
+                                    System.out.println("\n");
+                                    produto.exibirProduto();
+                                }
 
                                 // Aqui o .exibirProduto() funciona, pois o procurarPorCodigo retorna um produto
                                 // e não uma lista deles.
-                                break;
+                            break;
 
                             case "p" :
                                 System.out.println("Digite o preço a ser procurado: ");
                                 
-                                for(Produto produto : ControleProduto.procurarPorPreco(teclado.nextDouble())) { //como achar por preço?
+                                for(Produto produto : ControleProduto.procurarPorPreco(teclado.nextFloat())) { //como achar por preço?
                                     produto.exibirProduto();
                                    }
                                 // Mesma lógica do procurarPorGenero(). Isso aqui vai retornar uma lista de produtos.
@@ -113,7 +116,7 @@ public class BlocksFilmesProjeto {
 
                             break;
                     }
-                     // como exibir?
+                     
                     break;
                 case 7:
                     System.out.println("Digite o nome do cliente a ser excluido: ");

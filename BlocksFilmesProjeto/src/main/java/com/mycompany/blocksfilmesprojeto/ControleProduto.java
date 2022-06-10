@@ -28,15 +28,14 @@ public class ControleProduto {
         return listaDeProdutosDeUmGenero;
     }
 
-    public static ArrayList<Produto> procurarPorPreco(double preco) {
+    public static ArrayList<Produto> procurarPorPreco(Float preco) {
 
         // ArrayList<Produto> listaDeProdutosDeUmPreço = new ArrayList<Produto>(); <-- Nao use caractere especial em nome de variavel
         ArrayList<Produto> listaDeProdutosDeUmPreco = new ArrayList<Produto>();
         for(Produto produto : listaProduto){
-            if(produto.getAluguel() == preco) // double digitado se igualar a preço
+            if(produto.getAluguel() == preco) // float digitado se igualar a preço
                 listaDeProdutosDeUmPreco.add(produto);
         }
-
         return listaDeProdutosDeUmPreco;
     }
 
