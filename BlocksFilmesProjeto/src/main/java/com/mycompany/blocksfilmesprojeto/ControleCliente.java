@@ -63,7 +63,7 @@ public class ControleCliente {
         clienteMaisNovo.exibir();
     }
         
-    
+    // teste de push
         //for (int i = 0; i < listaCliente.length; i++) {
         //    if (listaCliente[i] >= maior) {
         //        maior = listaCliente[i];
