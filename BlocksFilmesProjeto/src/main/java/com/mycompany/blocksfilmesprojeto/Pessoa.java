@@ -39,10 +39,25 @@ public abstract class Pessoa {
     }
 
     public void setIdade(int idade) {
-        if (idade <= 0 || idade > 100)
-            throw new IllegalArgumentException("O funcionário não deve ser menor de idade.");
+        Scanner teclado = new Scanner(System.in);
+        boolean validacao;
 
-        this.idade = idade;
+        do{
+            validacao = true;
+            try{
+                if (idade > 0 && idade < 100)
+                this.idade = idade;
+            
+                else
+                throw new IllegalArgumentException("Digite uma idade válida.");
+            }
+             catch (IllegalArgumentException e){
+                System.out.println(e.getMessage() + "\n");
+                idade = teclado.nextInt();
+                validacao = false;
+            }
+        }while (!validacao);
+        
     }
 
     public String getCpf() {

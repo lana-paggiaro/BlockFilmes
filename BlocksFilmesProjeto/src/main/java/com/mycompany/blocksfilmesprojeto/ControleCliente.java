@@ -64,24 +64,29 @@ public class ControleCliente {
     }
         
     public static void ClientesMaioresQue60(){
-        Cliente clientesMaioresQue60 = listaCliente.get(0);
+        int valores = 0;
         for(Cliente c : listaCliente){
-            if (clientesMaioresQue60.getIdade() >= 60){
-                clientesMaioresQue60 = c;
+            if (c.getIdade() >= 60){
+                valores++;
             }
-            clientesMaioresQue60.exibir();
         }
+        if(valores > 0)
+            System.out.println("A quantidade de clientes maiores que 60 é: "+ valores);
+        else
+            System.out.println("Não há clientes maiores que 60 anos.");   
     }
 
     public static void ClientesMenoresQue18(){
-        Cliente clientesMenoresQue18 = listaCliente.get(0);
+        int valores = 0;
         for(Cliente c : listaCliente){
-            if (clientesMenoresQue18.getIdade() <= 18){
-                clientesMenoresQue18 = c;
+            if (c.getIdade() <= 18){
+                valores++;
             }
-            clientesMenoresQue18.exibir();
         }
+        if(valores > 0)
+            System.out.println("A quantidade de clientes menores que 18 é: " + valores);
+        else
+            System.out.println("Não há clientes menores que 18 anos.");
     }
-    
 }
 

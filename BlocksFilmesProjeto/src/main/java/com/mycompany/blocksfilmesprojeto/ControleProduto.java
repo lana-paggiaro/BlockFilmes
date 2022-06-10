@@ -1,6 +1,7 @@
 package com.mycompany.blocksfilmesprojeto;
 
 import java.util.ArrayList;
+
 import java.util.Scanner;
 
 public class ControleProduto {
@@ -68,27 +69,14 @@ public class ControleProduto {
         }
 
     public static void excluirProduto(String codigoExcluir) {
-        ArrayList<Produto> produto = procurarPorCodigo(codigoExcluir);
-        //Produto produto = procurarProduto(codigoProcurar);
-
-        //Iterator itr = listaProduto.iterator();
-        //while (itr.hasNext()){
-            //String x = (String)itr.next();
-
+        ArrayList<Produto> listinha = procurarPorCodigo(codigoExcluir);
+        for (Produto produto : listinha){
+            System.out.println("\nTem certeza que deseja excluir este filme ?");
             if (BlocksFilmesProjeto.opcaoSN()) {
-                //if (x.equals(codigoExcluir) ){
-                //itr.remove();
+                listaProduto.remove(produto);
                 System.out.println("O filme selecionado foi excluido com sucesso!");
-        } 
-            else
-                System.out.println("Voltando ao menu principal.");
-           
-        //}
-
-        System.out.println("\nTem certeza que deseja excluir este filme ?");
-
-        
-
+            } 
+        }
     }
 
     static void MediaPrecoProdutos() {
