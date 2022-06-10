@@ -29,13 +29,15 @@ public class ControleProduto {
     }
 
     public static ArrayList<Produto> procurarPorPreco(double preco) {
-        ArrayList<Produto> listaDeProdutosDeUmPreço = new ArrayList<Produto>();
+
+        // ArrayList<Produto> listaDeProdutosDeUmPreço = new ArrayList<Produto>(); <-- Nao use caractere especial em nome de variavel
+        ArrayList<Produto> listaDeProdutosDeUmPreco = new ArrayList<Produto>();
         for(Produto produto : listaProduto){
             if(produto.getAluguel() == preco) // double digitado se igualar a preço
-                listaDeProdutosDeUmPreço.add(produto);
+                listaDeProdutosDeUmPreco.add(produto);
         }
-        
-        return listaDeProdutosDeUmPreço;
+
+        return listaDeProdutosDeUmPreco;
     }
 
     public static ArrayList<Produto> procurarPorCodigo(String codigo) {
@@ -46,7 +48,7 @@ public class ControleProduto {
 
         }
         return listaDeProdutosDeUmCodigo;
-    } 
+    }
 
     public static ArrayList<Produto> procurarProduto(String codigoProcurar) { //revisar
         ArrayList<Produto> listaProcuraDeProduto = new ArrayList<Produto>();

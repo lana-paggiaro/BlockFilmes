@@ -8,9 +8,20 @@ public abstract class Pessoa {
     protected String cpf;
     protected String email;
 
-    // construtores
+    /*
+    * Voce nao fez um construtor que recebe os parametros nome, idade, cpf, email e etc, dai esses
+    * atributos ficam como null pq vc nunca seta eles.
+    * */
     public void Pessoa() {
 
+    }
+
+    // Fiz o construtor aqui
+    public Pessoa(String nome, int idade, String cpf, String email) {
+        this.nome = nome;
+        this.idade = idade;
+        this.cpf = cpf;
+        this.email = email;
     }
 
     // getters e setters

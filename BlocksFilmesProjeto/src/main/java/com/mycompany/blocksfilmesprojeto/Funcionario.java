@@ -7,10 +7,17 @@ public class Funcionario extends Pessoa implements IPessoa {
     protected double salario;
 
     // construtores
-    public Funcionario(String nome, int idade, String cpf, String email, String cargo, String salario) {
+    // Faltou os construtores aqui também
+    public Funcionario(String nome, int idade, String cpf, String email, String cargo, double salario) {
+        super(nome, idade, cpf, email);
+        this.cargo = cargo;
+        this.salario = salario;
     }
 
     public Funcionario() {
+        super("", 0, "", "");
+        this.cargo = "";
+        this.salario = 0;
     }
 
     // metodos
