@@ -83,10 +83,24 @@ public class Funcionario extends Pessoa implements IPessoa {
     @Override // sobrecarga pois funcionario n pode ser menor de 18 pq né
     public void setIdade(int idade) {
 
-        if (idade < 16)
-            throw new IllegalArgumentException("O funcionário não deve ser menor de idade. Voltando ao menu principal");
-        super.setIdade(idade);
-        // exceção de idade <18 || idade > 100 - voltar ao menu principal
+        try{
+        if (idade >= 16){
+            this.idade = idade;
+
+        }
+        else{
+        throw new IllegalArgumentException("O funcionário não deve ser menor de idade. Voltando ao menu principal...");
+        }
+        
+        }catch (IllegalArgumentException e){
+            System.out.println(e.getMessage() + "\n");
+            BlocksFilmesProjeto.esperador();
+            //voltar ao menu principal
+        }
+        
+            
+        //super.setIdade(idade);
+        
 
     }
 

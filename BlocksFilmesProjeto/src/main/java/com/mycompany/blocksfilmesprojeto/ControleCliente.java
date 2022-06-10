@@ -43,4 +43,31 @@ public class ControleCliente {
             System.out.println("Voltando ao menu principal.");
     }
 
+    static void ClienteMaisVelho() {
+        Cliente clienteMaisVelho = listaCliente.get(0);
+        for (Cliente c : listaCliente) {
+            if (clienteMaisVelho.getIdade() < c.getIdade()) {
+                clienteMaisVelho = c;
+            }
+        }
+        clienteMaisVelho.exibir();
+    }
+
+    static void ClienteMaisNovo(){
+        Cliente clienteMaisNovo = listaCliente.get(0);
+        for(Cliente c : listaCliente){
+            if (clienteMaisNovo.getIdade() > c.getIdade()){
+                clienteMaisNovo = c;
+            }
+        }
+        clienteMaisNovo.exibir();
+    }
+        
+    
+        //for (int i = 0; i < listaCliente.length; i++) {
+        //    if (listaCliente[i] >= maior) {
+        //        maior = listaCliente[i];
+        //        indiceMaior = i;
+        //    }
 }
+

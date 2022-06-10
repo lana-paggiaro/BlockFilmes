@@ -103,11 +103,25 @@ public class Produto {
     public void setCodigo(String codigo) {
         this.codigo = codigo;
         codigo.replaceAll("\\D", "");
+        Scanner teclado = new Scanner(System.in);
 
-        if (codigo.replaceAll("\\D", "").length() != 4)
-            throw new IllegalArgumentException("O codigo deve conter 4 números");
-        // tratar essa excessão de ter apenas 4 digitos para n parar compilação de código
+        boolean validacao;
+        do{
+            validacao = false;
+            try{
+                if (codigo.replaceAll("\\D", "").length() == 4)
+                {
+                    validacao = true;
+                    this.codigo = codigo;
+                } 
+                else{
+                throw new IllegalArgumentException("O codigo deve conter 4 números. Digite-o novamente: "); 
+                } 
+            } 
+            catch (IllegalArgumentException e){
+                System.out.println(e.getMessage() + "\n");
+                codigo = teclado.nextLine();
+            } 
+        } while (!validacao);
     }
-
-
 }

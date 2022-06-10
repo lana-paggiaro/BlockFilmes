@@ -54,10 +54,10 @@ public class ControleProduto {
         //Deixar só esse for aqui dentro
         for (Produto produto : listaProduto) {
             if (produto.getCodigo().toLowerCase().equals(codigoProcurar))
-                listaProcuraDeProduto.add(produto);
+                return listaProcuraDeProduto;
         }
 
-        return listaProcuraDeProduto; //fodase return listaProcuraDeProduto;
+        return null; //fodase return listaProcuraDeProduto;
 
         /*try{
             return null;
@@ -68,18 +68,39 @@ public class ControleProduto {
         }
 
     public static void excluirProduto(String codigoExcluir) {
-        ArrayList<Produto> produto = procurarProduto(codigoExcluir);
+        ArrayList<Produto> produto = procurarPorCodigo(codigoExcluir);
+        //Produto produto = procurarProduto(codigoProcurar);
+
+        //Iterator itr = listaProduto.iterator();
+        //while (itr.hasNext()){
+            //String x = (String)itr.next();
+
+            if (BlocksFilmesProjeto.opcaoSN()) {
+                //if (x.equals(codigoExcluir) ){
+                //itr.remove();
+                System.out.println("O filme selecionado foi excluido com sucesso!");
+        } 
+            else
+                System.out.println("Voltando ao menu principal.");
+           
+        //}
+
         System.out.println("\nTem certeza que deseja excluir este filme ?");
 
-        if (BlocksFilmesProjeto.opcaoSN()) {
-            listaProduto.remove(produto);
-            System.out.println("O filme selecionado foi excluido com sucesso!");
-        } else
-            System.out.println("Voltando ao menu principal.");
+        
 
     }
 
+    static void MediaPrecoProdutos() {
+        int mediaPreco = 0;
 
+        for (Produto p : listaProduto) {
+            mediaPreco += p.getAluguel();
+        }
+        mediaPreco = mediaPreco / listaProduto.size();
+        System.out.println("A média de idade dos clientes e: " + mediaPreco);
+
+    }
 
 }
 

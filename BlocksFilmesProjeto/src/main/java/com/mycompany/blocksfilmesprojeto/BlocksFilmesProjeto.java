@@ -49,7 +49,6 @@ public class BlocksFilmesProjeto {
                 case 1:
                     ControleCliente.cadastrarCliente().exibir();
                     
-                   
                     break;
                 case 2:
                     ControleFuncionario.cadastrarFuncionario().exibir();
@@ -81,17 +80,6 @@ public class BlocksFilmesProjeto {
                                 produto.exibirProduto();
                                 }
 
-                                /*
-                                * Explicação: Já que a sua função "buscarPorGenero"  agoraretorna uma lista de produtos, o seu
-                                * metodo exibirProduto não vai funcionar, pq ele só funciona para uma instância de Produto
-                                * e não para uma lista de produtos. O que você pode fazer é percorrer a lista de produtos
-                                * que o procurarPorGenero() retorna e fazer .exibirProduto() em cada produto dessa lista.
-                                * Mais ou menos assim:
-                                * for(Produto produto : procurarPorGenero(teclado.nextLine()) {
-                                *   produto.exibirProduto();
-                                * }
-                                * */
-
                                 break;
                             case "c":
                                 System.out.println("Digite o código a ser procurado: ");
@@ -101,8 +89,6 @@ public class BlocksFilmesProjeto {
                                     produto.exibirProduto();
                                 }
 
-                                // Aqui o .exibirProduto() funciona, pois o procurarPorCodigo retorna um produto
-                                // e não uma lista deles.
                             break;
 
                             case "p" :
@@ -111,8 +97,6 @@ public class BlocksFilmesProjeto {
                                 for(Produto produto : ControleProduto.procurarPorPreco(teclado.nextFloat())) { //como achar por preço?
                                     produto.exibirProduto();
                                    }
-                                // Mesma lógica do procurarPorGenero(). Isso aqui vai retornar uma lista de produtos.
-                                // Só percorrer ela e ir exibindo cada produto.
 
                             break;
                     }
@@ -127,7 +111,7 @@ public class BlocksFilmesProjeto {
                     ControleFuncionario.excluirFuncionario(teclado.nextLine());
                     break;
                 case 9:
-                    System.out.println("Digite o produto a ser excluido: ");
+                    System.out.println("Digite o código do produto a ser excluido: ");
                     ControleProduto.excluirProduto(teclado.nextLine());
                     break;
                 case 10:
@@ -144,22 +128,22 @@ public class BlocksFilmesProjeto {
         System.out.println("\nSUBMENU - INFORMAÇÕES DE SISTEMA\n");
         System.out.println("Verifique as opções abaixo:");
         System.out.println("Opção 1 - Cliente com maior idade");
-        System.out.println("Opção 2 - Cliente com maior idade");
-        System.out.println("Opção 3 - Cliente com maior idade");
-        System.out.println("Opção 4 - Cliente com maior idade");
-        System.out.println("Opção 5 - Cliente com maior idade");
-        System.out.println("Opção 6 - Cliente com maior idade");
+        System.out.println("Opção 2 - Cliente com menor idade");
+        System.out.println("Opção 3 - Cliente maiores que 60 anos");
+        System.out.println("Opção 4 - Cliente menores que 18 anos");
+        System.out.println("Opção 5 - Média de preço dos produtos");
+        System.out.println("Opção 6 - Produtos acima da média");
         System.out.print("\nDigite o número correspondente à ação que deseja realizar: ");
         opcaomenu = (teclado.nextInt());
         teclado.nextLine();
 
         switch (opcaomenu) {
             case 1:
-                //chama metodo
+                ControleCliente.ClienteMaisVelho();
                 break;
 
             case 2:
-                //chama metodo
+                ControleCliente.ClienteMaisNovo();
                 break;
 
             case 3:
@@ -169,7 +153,7 @@ public class BlocksFilmesProjeto {
                 break;
 
             case 5:
-                //chama metodo
+                ControleProduto.MediaPrecoProdutos();
                 break;
 
             case 6:
@@ -206,8 +190,11 @@ public class BlocksFilmesProjeto {
         return opcao == 's';
     }
 
-
+    
 }
+        
+
+
 
 
 

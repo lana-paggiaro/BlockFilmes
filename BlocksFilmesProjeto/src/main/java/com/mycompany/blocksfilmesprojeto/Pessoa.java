@@ -80,13 +80,25 @@ public abstract class Pessoa {
     }
 
     public void setEmail(String email) {
-
-        if (!email.contains("@"))
-            throw new IllegalArgumentException("O email deve conter, obrigatoriamente, @!");
-        //tratar essa exceção para n parar de compilar o codigo
-
         this.email = email;
-
+        Scanner teclado = new Scanner(System.in);
+        
+        boolean validacao;
+        do{
+            validacao = false;
+            try{
+                if (email.contains("@"))
+                {
+                    validacao = true;
+                    this.email = email;
+                }else{
+                    throw new IllegalArgumentException("O email deve conter, obrigatoriamente, @. Digite-o novamente: ");
+                }  
+            } catch (IllegalArgumentException e){
+            System.out.println(e.getMessage() + "\n");
+            email = teclado.nextLine();
+            }
+        } while(!validacao);
     }
 }
 

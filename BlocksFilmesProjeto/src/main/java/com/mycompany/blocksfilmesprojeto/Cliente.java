@@ -63,7 +63,7 @@ public class Cliente extends Pessoa implements IPessoa {
         System.out.println("Idade: " + idade);
         System.out.println("Cpf: " + cpf);
         System.out.println("Email: " + email);
-        System.out.println("Telefone:" + telefone);
+        System.out.println("Telefone: " + telefone);
     }
 
     // getters e setters
