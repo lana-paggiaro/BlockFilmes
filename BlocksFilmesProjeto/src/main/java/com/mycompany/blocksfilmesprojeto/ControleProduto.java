@@ -27,7 +27,7 @@ public class ControleProduto {
                 listaDeProdutosDeUmGenero.add(produto);
         }
         if(listaDeProdutosDeUmGenero.size() <= 0)
-            throw new IllegalArgumentException("Não há filme com esse gênero de filme.");
+            throw new IllegalArgumentException("Não há filme com esse gênero.");
         return listaDeProdutosDeUmGenero;
     }
 
@@ -76,10 +76,10 @@ public class ControleProduto {
     public static void excluirProduto(String codigoExcluir) {
         ArrayList<Produto> listinha = procurarPorCodigo(codigoExcluir);
         for (Produto produto : listinha){
-            System.out.println("\nTem certeza que deseja excluir este filme ?");
+            System.out.println("\nTem certeza que deseja excluir "+ produto.getTitulo() +"?");
             if (BlocksFilmesProjeto.opcaoSN()) {
                 listaProduto.remove(produto);
-                System.out.println("O filme selecionado foi excluido com sucesso!");
+                System.out.println("O filme "+ produto.getTitulo() + "foi excluido com sucesso!");
             } 
         }
     }

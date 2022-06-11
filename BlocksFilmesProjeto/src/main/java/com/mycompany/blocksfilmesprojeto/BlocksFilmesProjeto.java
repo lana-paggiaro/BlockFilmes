@@ -23,22 +23,21 @@ public class BlocksFilmesProjeto {
         boolean algolegal = true;
         int opcao;
         do { 
-            System.out.println("\nBEM-VINDO AO BLOCKSFILMES!\n");
-            System.out.println("Verifique as opções de cadastro abaixo:");
-            System.out.println("Opção 1 -  Cadastro de Cliente");
-            System.out.println("Opção 2 -  Cadastro de Funcionário");
-            System.out.println("Opção 3 -  Cadastro de Produto");
-            System.out.println("Opção 4 -  Busca de Cliente");
-            System.out.println("Opção 5 -  Busca de Funcionário");
-            System.out.println("Opção 6 -  Busca de Produto");
-            System.out.println("Opção 7 -  Exclusão de Cliente");
-            System.out.println("Opção 8 -  Exclusão de Funcionário");
-            System.out.println("Opção 9 -  Exclusão de Produto");
-            System.out.println("Opção 10 - Métodos");
-            System.out.println("Opção 0 -  Encerrar programa"); //funcionando
-            System.out.print("\nDigite o número correspondente à ação que deseja realizar: ");
-
-
+            System.out.println("\nBEM-VINDO AO BLOCKSFILMES!\n" +
+                    "Verifique as opções de cadastro abaixo:\n" +
+                    "Opção 1 -  Cadastro de Cliente\n" +
+                    "Opção 2 -  Cadastro de Funcionário\n" +
+                    "Opção 3 -  Cadastro de Produto\n" +
+                    "Opção 4 -  Busca de Cliente\n" +
+                    "Opção 5 -  Busca de Funcionário\n" +
+                    "Opção 6 -  Busca de Produto\n" +
+                    "Opção 7 -  Exclusão de Cliente\n" +
+                    "Opção 8 -  Exclusão de Funcionário\n" +
+                    "Opção 9 -  Exclusão de Produto\n" +
+                    "Opção 10 - Métodos\n" +
+                    "Opção 0 -  Encerrar programa\n" +
+                    "Digite o número correspondente à ação que deseja realizar: ");
+            
             opcao = (teclado.nextInt());
             teclado.nextLine();
 
