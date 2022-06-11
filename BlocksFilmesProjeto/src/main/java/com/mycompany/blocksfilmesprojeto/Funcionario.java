@@ -80,7 +80,7 @@ public class Funcionario extends Pessoa implements IPessoa {
         this.salario = salario;
     }
 
-    @Override // sobrecarga pois funcionario n pode ser menor de 18 pq né
+    @Override
     public void setIdade(int idade) {
         Scanner teclado = new Scanner(System.in);
         boolean validacao;
