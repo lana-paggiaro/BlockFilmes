@@ -13,7 +13,7 @@ public class ControleCliente {
     public static Cliente cadastrarCliente() {
         Cliente cliente = Cliente.cadastrarCliente();
         listaCliente.add(cliente);
-        System.out.println("O cliente " + cliente.getNome() + "foi cadastrado com sucesso!\n");
+        System.out.println("O cliente " + cliente.getNome() + " foi cadastrado com sucesso!\n");
 
         return cliente;
     }

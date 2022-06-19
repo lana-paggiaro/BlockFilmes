@@ -5,16 +5,6 @@ import java.util.Scanner;
 public class Cliente extends Pessoa implements IPessoa {
     protected String telefone;
 
-    // construtores
-    /*
-    * Seu construtor ta vazio, você só ta passando os parametros mas não ta passando
-    * pra superclasse com o super(), por isso ta dando NullPointer na hora de buscar
-    * um cliente, afinal, o nome ta ficando como null pois vc nao ta setando ele.
-    *
-    * public Cliente(String nome, int idade, String cpf, String email, String telefone) {
-    *
-    * }
-    */
 
     public Cliente(String nome, int idade, String cpf, String email, String telefone) {
         super(nome, idade, cpf, email);
@@ -51,7 +41,7 @@ public class Cliente extends Pessoa implements IPessoa {
         System.out.print("\nDigite seu telefone: ");
         cliente.setTelefone(teclado.next());
         teclado.nextLine();
-        System.out.println();
+        //System.out.println();
 
         return cliente;
     }
@@ -81,7 +71,7 @@ public class Cliente extends Pessoa implements IPessoa {
         boolean validacao;
 
         do {
-            validacao = true;
+            validacao = false;
             try {
                 if (telefone.replaceAll("\\D", "").length() == 11) {
                     validacao = true;

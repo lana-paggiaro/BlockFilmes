@@ -28,7 +28,7 @@ public class ControleFuncionario {
                 return funcionario;
             }
         }
-        throw new IllegalArgumentException("Funcionario não cadastrado.");
+        throw new IllegalArgumentException("Funcionario não existe.");
         
     }
 

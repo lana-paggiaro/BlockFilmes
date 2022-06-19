@@ -47,19 +47,22 @@ public class BlocksFilmesProjeto {
                     algolegal = false;
                     break;
                 case 1:
-                    System.out.println("CADASTRO DE CLIENTE");
+                    System.out.println("\nCADASTRO DE CLIENTE");
                     ControleCliente.cadastrarCliente().exibir();
                     
                     break;
                 case 2:
+                    System.out.println("\nCADASTRO DE FUNCIONARIO");
                     ControleFuncionario.cadastrarFuncionario().exibir();
                    
                     break;
                 case 3:
+                    System.out.println("\nCADASTRO DE PRODUTO");
                     ControleProduto.cadastrarProduto().exibirProduto();
                     
                     break;
                 case 4:
+                    System.out.println("\nBUSCA DE CLIENTE");
                     System.out.print("\nDigite o nome do cliente: ");
                     try{
                         ControleCliente.procurarCliente(teclado.nextLine()).exibir();
@@ -68,6 +71,7 @@ public class BlocksFilmesProjeto {
                     }
                     break;
                 case 5:
+                    System.out.println("\nBUSCA DE FUNCIONARIO");
                     System.out.print("\nDigite o nome do funcionario: ");
                     try{
                         ControleFuncionario.procurarFuncionario(teclado.nextLine()).exibir();
@@ -76,6 +80,7 @@ public class BlocksFilmesProjeto {
                     }
                     break;
                 case 6:
+                    System.out.println("\n BUSCA DE PRODUTO");
                     System.out.println("\nDigite a opcão a ser procurada: \ng - genero \nc - codigo\np - preço\n");
                     String escolha = teclado.nextLine();
 
@@ -120,6 +125,7 @@ public class BlocksFilmesProjeto {
                      
                     break;
                 case 7:
+                System.out.println("\nEXCLUSÃO DE CLIENTE");
                     System.out.println("Digite o nome do cliente a ser excluido: ");
                     try{
                         ControleCliente.excluirCliente(teclado.nextLine());
@@ -129,6 +135,7 @@ public class BlocksFilmesProjeto {
                     break;
 
                 case 8:
+                    System.out.println("\nEXCLUSÃO DE FUNCIONARIO");
                     System.out.println("Digite o nome do funcionario a ser excluido:");
                     try{
                         ControleFuncionario.excluirFuncionario(teclado.nextLine());
@@ -137,6 +144,7 @@ public class BlocksFilmesProjeto {
                     }
                     break;
                 case 9:
+                    System.out.println("\nEXCLUSÃO DE PRODUTO");
                     System.out.println("Digite o código do produto a ser excluido: ");
                     try{
 
