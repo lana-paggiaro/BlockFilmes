@@ -12,9 +12,7 @@ public class Cliente extends Pessoa implements IPessoa {
     }
 
     public Cliente() {
-        // Passando valores vazios para a super classe, que vai cuidar da idade, email, e etc.
         super("", 0, "", "");
-        // Ja que a classe Cliente vai ser responsável pelo telefone, a gente seta ele aqui
         telefone = "";
     }
 
@@ -41,7 +39,6 @@ public class Cliente extends Pessoa implements IPessoa {
         System.out.print("\nDigite seu telefone: ");
         cliente.setTelefone(teclado.next());
         teclado.nextLine();
-        //System.out.println();
 
         return cliente;
     }
