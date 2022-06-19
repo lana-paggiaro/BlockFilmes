@@ -63,14 +63,8 @@ public class ControleProduto {
                 return listaProcuraDeProduto;
         }
 
-        return null; //fodase return listaProcuraDeProduto;
+        return null; 
 
-        /*try{
-            return null;
-        }
-        catch (NullPointerException e) {
-            System.out.println("ERRO!\nEsse produto não está registrado!");
-        }*/
         }
 
     public static void excluirProduto(String codigoExcluir) {

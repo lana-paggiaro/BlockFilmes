@@ -113,7 +113,7 @@ public class BlocksFilmesProjeto {
                             case "p" :
                                 System.out.println("Digite o preço a ser procurado: ");
                                 try{
-                                    for(Produto produto : ControleProduto.procurarPorPreco(teclado.nextFloat())) { //como achar por preço?
+                                    for(Produto produto : ControleProduto.procurarPorPreco(teclado.nextFloat())) { 
                                         System.out.println("\n");
                                         produto.exibirProduto();
                                     }

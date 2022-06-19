@@ -8,10 +8,6 @@ public abstract class Pessoa {
     protected String cpf;
     protected String email;
 
-    /*
-    * Voce nao fez um construtor que recebe os parametros nome, idade, cpf, email e etc, dai esses
-    * atributos ficam como null pq vc nunca seta eles.
-    * */
     public void Pessoa() {
 
     }
