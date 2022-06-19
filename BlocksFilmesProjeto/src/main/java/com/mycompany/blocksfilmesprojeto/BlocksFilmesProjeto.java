@@ -34,19 +34,20 @@ public class BlocksFilmesProjeto {
                     "Opção 7 -  Exclusão de Cliente\n" +
                     "Opção 8 -  Exclusão de Funcionário\n" +
                     "Opção 9 -  Exclusão de Produto\n" +
-                    "Opção 10 - Métodos\n" +
+                    "Opção 10 - Informações do Sistema\n" +
                     "Opção 0 -  Encerrar programa\n" +
                     "Digite o número correspondente à ação que deseja realizar: ");
             
             opcao = (teclado.nextInt());
             teclado.nextLine();
 
-            switch (opcao) {
+           switch (opcao) {
                 case 0:
                     
                     algolegal = false;
                     break;
                 case 1:
+                    System.out.println("CADASTRO DE CLIENTE");
                     ControleCliente.cadastrarCliente().exibir();
                     
                     break;
@@ -148,6 +149,7 @@ public class BlocksFilmesProjeto {
                     menuMetodos();
                     break;
             }
+            
             if (algolegal)
                 esperador();
         } while (algolegal);
@@ -155,20 +157,23 @@ public class BlocksFilmesProjeto {
 
     public static void menuMetodos() {
         int opcaomenu;
+        
         System.out.println("\nSUBMENU - INFORMAÇÕES DE SISTEMA\n");
-        System.out.println("Verifique as opções abaixo:");
-        System.out.println("Opção 1 - Cliente com maior idade");
-        System.out.println("Opção 2 - Cliente com menor idade");
-        System.out.println("Opção 3 - Cliente maiores que 60 anos");
-        System.out.println("Opção 4 - Cliente menores que 18 anos");
-        System.out.println("Opção 5 - Média de preço dos produtos");
-        System.out.println("Opção 6 - Produtos acima da média");
-        System.out.print("\nDigite o número correspondente à ação que deseja realizar: ");
+        System.out.println("Verifique as opções abaixo:\n" +
+         "Opção 1 - Cliente com maior idade\n" + 
+         "Opção 2 - Cliente com menor idade\n" +
+         "Opção 3 - Cliente maiores que 60 anos\n" +
+         "Opção 4 - Cliente menores que 18 anos\n" +
+         "Opção 5 - Média de preço dos produtos\n" +
+         "Opção 6 - Produtos acima da média\n" +
+         "Digite o número correspondente à ação que deseja realizar: ");
+        
         opcaomenu = (teclado.nextInt());
         teclado.nextLine();
 
         switch (opcaomenu) {
             case 1:
+                          
                 ControleCliente.ClienteMaisVelho();
                 break;
 

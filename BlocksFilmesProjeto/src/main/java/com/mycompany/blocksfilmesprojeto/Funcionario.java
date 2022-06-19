@@ -32,7 +32,6 @@ public class Funcionario extends Pessoa implements IPessoa {
         System.out.print("\nDigite sua idade: ");
         funcionario.setIdade(teclado.nextInt());
 
-
         System.out.print("\nDigite seu cpf: ");
         funcionario.setCpf(teclado.next());
         teclado.nextLine();
@@ -59,7 +58,7 @@ public class Funcionario extends Pessoa implements IPessoa {
         System.out.println("Idade: " + idade);
         System.out.println("Cpf: " + cpf);
         System.out.println("Cargo: " + cargo);
-        System.out.println("Salario: " + salario);
+        System.out.println("Salario: R$" + salario);
         System.out.println("Email: " + email);
     }
 
@@ -88,14 +87,15 @@ public class Funcionario extends Pessoa implements IPessoa {
         do {
             validacao = true;
             try {
-                idade = teclado.nextInt();
                 if (idade >= 16)
                     this.idade = idade;
                 else
                     throw new IllegalArgumentException("O funcionário não deve ser menor de idade. Digite novamente.");
             } catch (IllegalArgumentException e) {
                 System.out.println(e.getMessage() + "\n");
+                idade = teclado.nextInt();
                 validacao = false;
+                
 
             }
         } while (!validacao);

@@ -10,8 +10,6 @@ public class ControleFuncionario {
         return listaFuncionario;
     }
 
-    //exceção de return null??? socorro*/
-
     public static Funcionario cadastrarFuncionario() {
         Funcionario funcionario = Funcionario.cadastrarFuncionario();
         listaFuncionario.add(funcionario);
