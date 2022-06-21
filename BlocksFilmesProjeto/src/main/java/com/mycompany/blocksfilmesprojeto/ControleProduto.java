@@ -85,7 +85,7 @@ public class ControleProduto {
             mediaPreco += p.getAluguel();
         }
         mediaPreco = mediaPreco / listaProduto.size();
-        System.out.println("A média dos preços é: " + mediaPreco);
+        System.out.printf("A média dos preços é: %.2f", mediaPreco);
         return mediaPreco;
     }
 
@@ -97,7 +97,7 @@ public class ControleProduto {
                 valores++;
             }
         }
-        System.out.println("A quantidade de preços acima da média é de: "+ valores);
+        System.out.println("\nA quantidade de preços acima da média é de: "+ valores);
     }
 }
 
