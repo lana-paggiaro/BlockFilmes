@@ -2,9 +2,9 @@
 Sistema de aluguel de filmes em Java.
 
 ## Funções
-* Cadastro de clientes, funcionários e produtos
-* Verificação de clientes, funcionários e produtos
-* Exclusão de clientes, funcionários e produtos
+* Cadastro de clientes, funcionários e produtos;
+* Busca de clientes e funcionários por nome e de produtos por título;
+* Exclusão de clientes, funcionários e produtos.
 
 ## Atributos
 Cliente   | Funcionário | Produto          |
