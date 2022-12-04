@@ -13,4 +13,4 @@ CPF       | Cargo       | Título           |
 Telefone  | Salário     | Gênero           |
 Email     | Telefone    | Lançamento       |
 Atividade | Endereço    | Preço de aluguel |
-   -      | Atividade   | Disponibilidade  |
+   x      | Atividade   | Disponibilidade  |
