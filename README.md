@@ -1,6 +1,6 @@
 # BlockFilmes
 Sistema de aluguel de filmes em Java.  
-Feito por Isabela Silvestre Rodrigues (Gs1lver on GitHub) and Luanna Sachinelli Paggiaro (Lua-da-tarde on GitHub).
+Feito por Isabela Silvestre Rodrigues ([Gs1lver](https://github.com/Gs1lver) on GitHub) and Luanna Sachinelli Paggiaro ([Lua-da-tarde](https://github.com/Lua-da-tarde) on GitHub).
 
 ## Funções
 * Cadastro de clientes, funcionários e produtos;
